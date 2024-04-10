@@ -1,0 +1,60 @@
+<div class="">
+    <mat-toolbar class=" w-180 flex justify-between">
+        <div class="pt-10">
+            <h2 class="text-4xl font-bold">อัพโหลด CSV</h2><br />
+            <p class="text-3xl text-gray-400">เลือกไฟล์ที่ต้องการอัพโหลด</p>
+        </div>
+        <button mat-icon-button class="example-icon " aria-label="Example icon-button with menu icon">
+            <mat-icon svgIcon="heroicons_outline:x-mark" class=""></mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-dialog-content class="h-60 flex flex-col justify-between">
+
+        <div class="w-full mt-5 bg-orange-100">
+            <mat-icon svgIcon="heroicons_solid:information-circle" color="primary"></mat-icon>
+            <span fuseAlertTitle class="text-[#8e3232] text-2xl">
+                กรุณาดาวน์โหลดไฟล์ข้อมูลล่าสุด เพื่อเพิ่มหรือแก้ไขข้อมูล
+            </span>
+        </div>
+        <div class="flex justify-center">
+            <mat-icon svgIcon="feather:upload-cloud" color="primary"></mat-icon>
+        </div>
+        <div class="dropzone">
+            <div class="centered gap-2 flex  justify-center">
+                <div>
+                    <label for="file"><span class="textLink text-2xl ">ลากละวางไฟล์ที่นี่หรือ</span></label>
+                </div>
+                <button><span class="text-2xl font-mono font-bold">เลือกไฟล์</span></button>
+            </div>
+
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-content>
+        <diV class="flex">
+            <!-- <img class="w-5 h-5" src="/assets/images/dialog/f1.png"> -->
+            <span>ไฟล์ข้อมูลล่าสุด</span>
+        </diV>
+
+        <div class="flex flex-row justify-between">
+            <div>
+                <span>
+                    คุณสามารถดาวน์โหลดไฟล์ตัวอย่างข้อมูลต้นแบบ<br />
+                    เพื่อกรอกข้อมูลและอัปโหลดเข้ามาในระบบได้
+                </span>
+            </div>
+            <button mat-button (click)="onClick">
+                <span class="font-bold">
+                    ดาวน์โหลด
+                </span>
+            </button>
+        </div>
+
+        <button mat-button (click)="onClick">
+            <span class="font-bold text-red-600">
+                อ่านคู่มือการใช้งาน
+            </span>
+        </button>
+    </mat-dialog-content>
+
+</div>

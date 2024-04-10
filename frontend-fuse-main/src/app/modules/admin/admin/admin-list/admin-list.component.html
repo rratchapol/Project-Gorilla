@@ -1,0 +1,111 @@
+<div
+    class="relative flex justify-between   flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+    <div class="flex">
+        <h2 class="text-xl font-bold">จัดการผู้ใช้งาน</h2>
+    </div>
+</div>
+
+<div class="bg-card m-4 p-4 rounded-md">
+
+    <div class="flex  gap-3 ">
+        <div>
+            <mat-form-field class="flex-initial w-120">
+                <mat-icon class="text-gray-400" svgIcon="heroicons_solid:magnifying-glass"></mat-icon>
+                <input matInput placeholder="ค้นหา">
+            </mat-form-field>
+        </div>
+
+        <div class="flex-initial ">
+            <mat-form-field class=" flex-auto  gt-xs:pl-3 w-50 ">
+                <mat-select [placeholder]="'บริษัททั้งหมด'" class="">
+                    <mat-option value="000-000-0000">Murphy</mat-option>
+                    <mat-option value="000-000-0032">Bessie </mat-option>
+                    <mat-option value="000-000-0043">Hawkins</mat-option>
+                    <mat-option value="000-000-0056">Savannah</mat-option>
+                    <mat-option value="000-000-0078">Kathryn</mat-option>
+                    <mat-option value="000-000-8500">Honda</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="flex justify-end flex-initial gap-3 w-full ">
+            <button class="w-40 h-12 rounded-xl border-2 border-gray-200 hover:bg-slate-200 shadow-md"
+                (click)="openDialogUploadcsv()">
+                <div class="flex justify-center">
+                    <mat-icon svgIcon="heroicons_outline:folder-plus"></mat-icon>
+                    <p class="mt-1 ml-2">
+                        จับคู่ อัปโหลด CSV
+                    </p>
+                </div>
+            </button>
+            <button class=" h-12 w-40 text-white rounded-xl bg-primary-500 shadow-sm hover:bg-red-400"
+                (click)="gotoAaddriver()">
+                <div class="flex justify-center">
+                    <mat-icon class="text-white" svgIcon="heroicons_outline:plus-circle"></mat-icon>
+                    <p class="mt-1 ml-2">
+                        เพิ่มพนักงาน
+                    </p>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead class="bg-gray-50">
+            <tr>
+                <th>ชื่อ</th>
+                <th>ตำแหน่ง</th>
+                <th>แผนก</th>
+                <th>เข้าใช้งานล่าสุด</th>
+                <th>จัดการ</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (2).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Maria Roselia
+                    </a>
+                </td>
+                <td>Staff</td>
+                <td class="">
+                    บริหารบุคคล
+                </td>
+                <td>
+                    วันนี้ 10:00
+                </td>
+                <td>
+                    <a mat-button [routerLink]="['1']">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </a>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (2).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Dianne Russell
+                    </a>
+                </td>
+                <td>admin</td>
+                <td class="">
+                    Sale
+                </td>
+                <td>
+                    14/2/2023 (6 เดือนที่แล้ว)
+                </td>
+                <td>
+                    <a mat-button [routerLink]="['2']">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+    </mat-paginator>
+</div>

@@ -1,0 +1,480 @@
+<div class="flex flex-col w-full">
+    <div
+        class="relative flex flex-0 justify-between items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+        <div class="flex">
+            <h2 class="text-xl font-bold">รายชื่อคนขับ > ดูประวัติการลงเวลา</h2>
+        </div>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="m-4">
+        <div class="flex flex-col gap-4">
+            <div class="flex md:flex-row flex-col gap-4 justify-center w-full">
+                <div
+                    class="relative flex md:w-1/2 w-full flex-auto p-6 pr-3 pb-3 bg-card rounded-2xl shadow overflow-hidden">
+                    <div class="flex flex-row justify-between w-full h-full">
+                        <div class="flex mt-4 ">
+                            <div class="flex flex-col  w-full  gap-7">
+                                <div class="text-2xl text-center  leading-6 truncate">ข้อมูลคนขับ</div>
+                                <div class="flex-0 w-[150px] h-[150px] rounded-full overflow-hidden">
+                                    <img class="w-full h-full object-cover" src="assets/images/avatars/Avatar.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col mx-6 mt-14 gap-y-1 ">
+                            <div class="text-[16px] font-medium leading-none text-secondary">ชื่อคนขับ</div>
+                            <div class="flex flex-row items-center">
+                                <mat-icon svgIcon="heroicons_outline:user"></mat-icon>
+                                <div class="mt-2 font-medium text-[17px] leading-none items-center">Bessie Cooper</div>
+                            </div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">สถานะ</div>
+                            <div
+                                class="mt-2 font-medium text-[17px] leading-none border w-24 h-6 text-[#B76E00] bg-orange-100 items-center rounded-lg flex justify-center">
+                                มีผู้โดยสาร</div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">ชั่วโมงการทำงาน</div>
+                            <div class="flex flex-row">
+                                <mat-icon svgIcon="heroicons_outline:clock"></mat-icon>
+                                <div class="mt-2 font-medium text-[17px] leading-none items-center">81 ชั่วโมง</div>
+                            </div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">
+                                เบี้ยเลี้ยงนอกพื้นที่ทั้งหมด
+                            </div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">฿ 400.00</div>
+                        </div>
+                        <div class="flex flex-col mx-6 mt-14 gap-y-1 ">
+                            <div class="text-[16px] font-medium leading-none text-secondary">รหัสพนักงาน</div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">ASAP0012</div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">ผู้โดยสารปัจุุบัน</div>
+                            <div class="flex flex-row items-center">
+                                <mat-icon svgIcon="heroicons_outline:user"></mat-icon>
+                                <div class="mt-2 font-medium text-[17px] leading-none items-center">Pitcha Rusk</div>
+                            </div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">OT</div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">4 ชั่วโมง</div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">เบี้ยเลี้ยงค้างคืนทั้งหมด
+                            </div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">มีผู้โดยสาร</div>
+
+                        </div>
+                        <div class="flex flex-col mx-6 mt-14 gap-y-1 mb-5">
+                            <div class="text-[16px] font-medium leading-none text-secondary">เบอร์โทรศัพท์</div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">085-036-0033</div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">บริษัท</div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">โรงพยาบาลนคร</div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">ค่าแท็กซี่ทั้งหมด</div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">฿ 300.00</div>
+                            <br>
+                            <div class="text-[16px] font-medium leading-none text-secondary">ค่าที่พักทั้งหมด</div>
+                            <div class="mt-2 font-medium text-[17px] leading-none items-center">฿ 600.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative flex flex-col md:w-1/2 w-full grow flex-auto p-6 pr-3  bg-card  rounded-2xl shadow overflow-hidden">
+                    <div class="flex w-full ">
+                        <div class="flex flex-col ">
+                            <h1 class="text-2xl font-bold">ความพึงพอใจลูกค้า</h1>
+                            <div class="mt-4 relative w-[250px] h-[250px]">
+                                <img src="assets/images/logo/chart.png" alt="">
+                                <div
+                                    class="flex text-center flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                    <h1 class="font-bold text-[40px]">4.2</h1>
+                                    <p class="text-[16px] leading-6 text-gray-600">จาก396 รีวิว</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-around gap-2">
+                            <div class="w-full ml-15">
+                                <div class=" flex">
+                                    <img class="w-8 h-8 flex pr-2" src="assets/images/avatars/like.png" alt="">
+                                    <div class="mt-2">
+                                        <p class="">ผู้โดยสาร 99.50% พึงพอใจ <span class="text-red-600 p-2">รีวิวทั้งหมด > </span></p>
+                                    </div>
+                                </div>
+                                <div
+                                    class=" mt-5 w-[400px]  col-span-2 flex flex-col justify-center    rounded-2xl bg-orange-50 text-indigo-800 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400">
+                                    <div class=" p-5">
+                                        <div class="text-2xl font-bold text-black">คะเเนนภาพรวม</div>
+                                        <div class="flex">
+                                            <div class="flex py-2 ">
+                                                <img class="w-12 h-12 flex "
+                                                    src="assets/images/driver-detail/frame1.png" alt="">
+                                                <div class="">
+                                                    <p class="mt-4 ml-2 text-[20px] text-black">การขับขี่ <span
+                                                            class="text-green-600 text-[16px]">12.5% > </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <div
+                                                    class="w-20 h-10 ml-22 flex flex-col items-center justify-center rounded-full bg-orange-300">
+                                                    <div class="flex">
+                                                        <mat-icon class="text-white icon-size-5">grade</mat-icon>
+                                                        <div class=" text-center items-center  text-white mt-1">4.9</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex">
+                                            <div class="flex py-2 ">
+                                                <img class="w-12 h-12 flex "
+                                                    src="assets/images/driver-detail/frame1.png" alt="">
+                                                <div class="">
+                                                    <p class="mt-4 ml-2 text-[20px] text-black">การบริการ <span
+                                                            class="text-green-600 text-[16px]"></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center ">
+                                                <div
+                                                    class="ml-32 w-20 h-10 flex flex-col items-center justify-center rounded-full bg-orange-300">
+                                                    <div class="flex">
+                                                        <mat-icon class="text-white icon-size-5">grade</mat-icon>
+                                                        <div class=" text-center items-center  text-white mt-1">4.2</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex">
+                                            <div class="flex py-2 ">
+                                                <img class="w-12 h-12 flex "
+                                                    src="assets/images/driver-detail/frame1.png" alt="">
+                                                <div class="">
+                                                    <p class="mt-4 ml-2 text-[20px] text-black">การมาตรงเวลา<span
+                                                            class="text-green-600 text-[16px]"></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center ">
+                                                <div
+                                                    class="w-20 h-10 ml-22 flex flex-col items-center justify-center rounded-full bg-orange-300">
+                                                    <div class="flex">
+                                                        <mat-icon class="text-white icon-size-5">grade</mat-icon>
+                                                        <div class=" text-center items-center  text-white mt-1">4.8</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- <div class="flex flex-col">
+                            <div class="text-lg  font-bold tracking-tight leading-6 truncate">ความพึงพอใจลูกค้า <span
+                                    class="absolute right-[8rem]">ผู้โดยสาร
+                                    99.50% พึงพอใจ</span></div>
+                                    <div class="flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden p-6">
+                                        <div class="flex items-start justify-between">
+                                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Age</div>
+                                            <div class="ml-2">
+                                                <button
+                                                    class="h-6 min-h-6 px-2 rounded-full bg-hover"
+                                                    mat-button
+                                                    [matMenuTriggerFor]="conversionMenu">
+                                                    <span class="font-medium text-sm text-secondary">30 days</span>
+                                                </button>
+                                                <mat-menu #conversionMenu="matMenu">
+                                                    <button mat-menu-item>30 days</button>
+                                                    <button mat-menu-item>3 months</button>
+                                                    <button mat-menu-item>9 months</button>
+                                                </mat-menu>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col flex-auto mt-6 h-44">
+                                            <apx-chart
+                                                class="flex flex-auto items-center justify-center w-full h-full"
+                                                [chart]="chartAge.chart"
+                                                [colors]="chartAge.colors"
+                                                [labels]="chartAge.labels"
+                                                [plotOptions]="chartAge.plotOptions"
+                                                [series]="chartAge.series"
+                                                [states]="chartAge.states"
+                                                [tooltip]="chartAge.tooltip"></apx-chart>
+                                        </div>
+                                        <div class="mt-8">
+                                            <div class="-my-3 divide-y">
+                                                <ng-container *ngFor="let dataset of data.age.series; let i = index">
+                                                    <div class="grid grid-cols-3 py-3">
+                                                        <div class="flex items-center">
+                                                            <div
+                                                                class="flex-0 w-2 h-2 rounded-full"
+                                                                [style.backgroundColor]="chartAge.colors[i]"></div>
+                                                            <div class="ml-3 truncate">{{data.age.labels[i]}}</div>
+                                                        </div>
+                                                        <div class="font-medium text-right">{{data.age.uniqueVisitors * dataset / 100 | number:'1.0-0'}}</div>
+                                                        <div class="text-right text-secondary">{{dataset}}%</div>
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div> -->
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-card  p-4 rounded-md overflow-auto ">
+                <table datatable [dtOptions]="dtOptions" class="row-border w-full ">
+                    <thead>
+                        <tr>
+                            <th>วันที่</th>
+                            <th>Ride No.</th>
+                            <th>ผู้โดยสาร</th>
+                            <th>บริษัท</th>
+                            <th>ลงเวลาเข้า</th>
+                            <th>เริ่มบริการ</th>
+                            <th>เสร็จสิ้นบริการ</th>
+                            <th>OT (hrs)</th>
+                            <th>สถานะ</th>
+                            <th>การมองเห็น</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>29/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                        src="assets/images/avatars/justin.png" alt=""><span>Jetrin Wattana</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.45 น.</td>
+                            <td>
+                                <div class="flex items-center gap-4">
+                                    <span>19.32 น.</span>
+                                    <img class="w-5 h-5 rounded-full" src="assets/images/driver-detail/shape.png">
+                                </div>
+                            </td>
+                            <td>0.5</td>
+                            <td>
+                                <p class="border w-14 h-6 text-[#B76E00] bg-orange-100 items-center rounded-lg">รอยืนยัน
+                                </p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>28/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                        src="assets/images/avatars/justin.png" alt=""><span>Jetrin Wattana</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.10 น.</td>
+                            <td>
+                                <div class="flex items-center gap-4">
+                                    <span>19.32 น.</span>
+                                    <img class="w-5 h-5 rounded-full" src="assets/images/driver-detail/shape.png">
+                                </div>
+                            </td>
+                            <td>16.21 น.</td>
+                            <td>1</td>
+                            <td>
+                                <p class="border w-14 h-6 text-[#B76E00] bg-orange-100 items-center rounded-lg">รอยืนยัน
+                                </p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>27/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                        src="assets/images/avatars/justin.png" alt=""><span>Jetrin Wattana</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>6.54 น.</td>
+                            <td>
+                                <div class="flex items-center gap-4">
+                                    <span>19.32 น.</span>
+                                    <img class="w-5 h-5 rounded-full" src="assets/images/driver-detail/shape.png">
+                                </div>
+                            </td>
+                            <td>16.21 น.</td>
+                            <td>2</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>26/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                        src="assets/images/avatars/justin.png" alt=""><span>Jetrin Wattana</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.10 น.</td>
+                            <td>7.43 น.</td>
+                            <td>16.21 น.</td>
+                            <td>0.5</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>25/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                        src="assets/images/avatars/justin.png" alt=""><span>Jetrin Wattana</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>6.54 น.</td>
+                            <td>7.32 น.</td>
+                            <td>19.32 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>24/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                    src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.10 น.</td>
+                            <td>7.23 น.</td>
+                            <td>16.21 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>23/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                        src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.56 น.</td>
+                            <td>16.21 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>29/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                    src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.45 น.</td>
+                            <td>19.32 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>29/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                    src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.45 น.</td>
+                            <td>19.32 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>29/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                    src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.45 น.</td>
+                            <td>19.32 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>29/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                    src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.45 น.</td>
+                            <td>19.32 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td>29/03/2023</td>
+                            <td>ASAP-20240224-5</td>
+                            <td>
+                                <div class="flex items-center gap-4"><img class="w-8 h-8 rounded-full"
+                                    src="assets/images/driver-detail/justin2.png" alt=""><span>Maria Roselia</span></div>
+                            </td>
+                            <td>ไทยประกันชีวิต</td>
+                            <td>7.34 น.</td>
+                            <td>7.45 น.</td>
+                            <td>19.32 น.</td>
+                            <td>-</td>
+                            <td>
+                                <p class="border w-12 h-6 text-[#bbd2c9] bg-[#36B37E] items-center rounded-lg">จบงาน</p>
+                            </td>
+                            <td><mat-icon svgIcon="heroicons_outline:eye"></mat-icon></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

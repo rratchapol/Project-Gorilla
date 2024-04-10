@@ -1,0 +1,74 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Header -->
+    <!-- Loader -->
+    <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+        <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+    </div>
+    <div
+        class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-4 sm:py-8 sm:px-10 border-b bg-card dark:bg-transparent">
+        <div class="flex-1 flemin-w-0">
+            <!-- Title -->
+            <div class="flex flex-row mt-2 justify-between">
+                <h2 class="text-md md:text-3xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                    เลือก Influencer
+                </h2>
+                <!-- <div class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                    <button class="px-6 ml-3" mat-flat-button [color]="'primary'" (click)="add()">
+                        + เพิ่มสินค้า
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-10  bg-white">
+        <div class="flex flex-col flex-auto p-5  sm:overflow-y-auto">
+            <table datatable [dtOptions]="dtOptions"
+                class="table row-border hover w-full bg-white whitespace-nowrap">
+                <thead>
+                    <tr>
+                        <th class="w-[100px]">จัดการ</th>
+                        <th>Name account</th>
+                        <th>เพศ</th>
+                        <th>อายุ</th>
+                        <th>อาชีพ</th>
+                        <th>Lifestyle</th>
+                        <th>facebook Name</th>
+                        <th>Link facebook</th>                        
+                        <th>Follower facebook</th>       
+                    </tr>
+                </thead>
+                <tbody *ngIf="dataRow?.length != 0">
+                    <tr *ngFor="let item of dataRow; let i = index">
+                        <td>
+                            <button mat-icon-button color="primary" (click)="editElement(item)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn"  (click)="deleteElement(item)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                        <td>{{ pages.begin + (i + 1) }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.gender }}</td>
+                        <td>{{ item.age }}</td>
+                        <!-- <td>{{ item.created_at !== null ? (item.created_at | date : "dd-MM-yyyy, HH:mm"): "-"}}</td>
+                        <td>{{ item.created_by !== null ? (item.created_at | date : "dd-MM-yyyy, HH:mm"): "-"}}</td>                  -->
+                        <td>{{ item.accupation }}</td>
+                        <td>{{ item.Lifestyle }}</td>
+                        <td>{{ item.namefb }}</td>
+                        <td>{{ item.follower }}</td>
+                       
+
+                    </tr>
+                </tbody>
+                <tbody *ngIf="dataRow?.length == 0">
+                    <tr>
+                        <td colspan="9" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

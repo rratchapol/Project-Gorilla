@@ -1,0 +1,243 @@
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">Checklist Draft & Stat</span>
+    </mat-toolbar>
+    <div class="flex p-4 w-full">
+        <div class="flex flex-col justify-between w-full">
+            <form class="flex flex-col justify-center w-full  bg-card rounded-2xl shadow">
+                <div class="bg-card rounded-md">
+                    <div class="flex w-full">
+                        <mat-tab-group>
+                            <mat-tab label="มกราคม">
+                                <div class="flex  gap-3 mb-3">
+                                    <div class="flex">
+                                        <mat-form-field class="flex-initial w-120">
+                                            <mat-icon class="text-gray-400"
+                                                svgIcon="heroicons_solid:magnifying-glass"></mat-icon>
+                                            <input matInput placeholder="ค้นหา">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="flex-initial">
+                                        <mat-form-field class=" flex-auto  gt-xs:pl-3 w-50 ">
+                                            <input matInput [matDatepicker]="picker">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker startView="year"
+                                                [startAt]="startDate"></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="flex-initial ">
+                                        <mat-form-field class=" flex-auto  gt-xs:pl-3 w-50 ">
+                                            <mat-select [placeholder]="'ช่องทางออนไลน์'" class="">
+                                                <mat-option value="000-000-0000">Facebook</mat-option>
+                                                <mat-option value="000-000-0032">Instagram </mat-option>
+                                                <mat-option value="000-000-0043">TikTok</mat-option>
+                                                <mat-option value="000-000-0056">Twitter</mat-option>
+                                                <mat-option value="000-000-0078">Youtube</mat-option>
+                                                <mat-option value="000-000-8500">Blog</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="w-full">
+                                    <div class="w-full ">
+                                        <mat-toolbar class="flex  bg-[#C4C4C4]">
+                                            <span class=" text-[20px]">Part :</span>
+                                                <input class=" bg-[#C4C4C4] ml-3 text-[20px]" matInput required>
+                                        </mat-toolbar>
+                                    </div>
+                                    <div class="w-full mt-1">
+                                        <mat-toolbar class="flex  bg-[#F0F0F0]">
+                                            <span class=" text-[20px]">ITEM :</span>
+                                                <input class=" bg-[#F0F0F0] ml-3 text-[20px]" matInput required>
+                                        </mat-toolbar>
+                                    </div>
+                                    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                                        <thead class="bg-gray-50 whitespace-nowrap">
+                                            <tr>
+                                                <th>จัดการ</th>
+                                                <th>No</th>
+                                                <th>Name/Channel</th>
+                                                <th>Link Social</th>
+                                                <th>ลิงก์ดราฟ 1</th>
+                                                <th>สถานะ/ฟีดแบค จากทีมงาน</th>
+                                                <th>ฟีดแบคลูกค้า</th>
+                                                <th>ลิงก์ดราฟ 2</th>
+                                                <th>สถานะ/ฟีดแบค จากทีมงาน</th>
+                                                <th>ลิงก์ดราฟ 3</th>
+                                                <th>สถานะ/ฟีดแบค จากทีมงาน</th>
+                                                <th>ฟีดแบคลูกค้า</th>
+                                                <th>ดราฟ ผ่าน/ไม่ผ่าน</th>
+                                                <th>บรีฟงาน</th>
+                                                <th>วันที่ลงงานจริง</th>
+                                                <th>Post Done</th>
+                                                <th>link Post TikTok</th>
+                                                <th>Gen Code Tiktok</th>
+                                                <th>View</th>
+                                                <th>Like</th>
+                                                <th>Comment</th>
+                                                <th>Share </th>
+                                                <th>หมายเหตุ </th>
+                                                <th>ช่องทางการประสารงาน </th>
+                                                <th>เรทจ้าง </th>
+                                                <th>ยอด </th>
+                                                <th>รายละเอียด ค่าใช้จ่าย </th>
+                                                <th>ประเภทคอนเทนต์ </th>
+                                                <th>Vat7%</th>
+                                                <th>หัก ณ ที่จ่าย 2%,3%,5%</th>
+                                                <th>ค่าสินค้า</th>
+                                                <th>ยอดโอน</th>
+                                                <th>วันที่โอนเงิน</th>
+                                                <th>หมายเหตุ</th>
+                                                <th>ชื่อบัญชี</th>
+                                                <th>เลขที่บัญชี</th>
+                                                <th>ธนาคาร</th>
+                                                <th>ชื่อตามบัตรประจำตัวประชาชน</th>
+                                                <th>เลขบัตรประชาชน</th>
+                                                <th>ที่อยู่ตามหน้าบัตร ประจำตัวประชาชน</th>
+                                                <th>ที่อยู่จัดส่งสินค้ารีวิว</th>
+                                                <th>เบอร์ติดต่อ</th>
+                                                <th>ID Line</th>
+                                                <th>สำเนาหน้าบัตร ประชาชน</th>
+                                                <th>E-Mail ส่ง ใบหัก ณ ที่จ่าย</th>
+                                                <th>ลิ้งใบหัก ณ ที่จ่าย</th>
+                                                <th>ใบเสนอราคา</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- <tbody *ngIf="dataRow?.length != 0">
+                                            <tr *ngFor="let item of dataRow; let i = index"> -->
+                                        <tbody class="whitespace-nowrap">
+                                            <tr>
+                                                <td class="flex">
+                                                    <button mat-icon-button color="warn">
+                                                        <mat-icon>delete</mat-icon>
+                                                    </button>
+                                                </td>
+                                                <!-- <td>{{ pages.begin + (i + 1) }}</td> -->
+                                                <!-- <td>{{ pages.begin + (i + 1) }}</td>
+                                                <td>{{ item.name }}</td>
+                                                <td>{{ item.gender }}</td>
+                                                <td>{{ item.age }}</td>
+                                                <td>{{ item.occupation }}</td>
+                                                <td>{{ item.type }}</td>
+                                                <td>{{ item.province }}</td>
+                                                <td>{{ item.facebookname }}</td>
+                                                <td>{{ item.facebook }}</td>
+                                                <td>{{ item.follower }}</td>
+                                                <td>{{ item.typefb }}</td>
+                                                <td>{{ item.cost }}</td>
+                                                <td>{{ item.accountname }}</td>
+                                                <td>{{ item.number }}</td>
+                                                <td>{{ item.bank }}</td>
+                                                <td>{{ item.namecard }}</td>
+                                                <td>{{ item.IDcard }}</td>
+                                                <td>{{ item.address }}</td>
+                                                <td>{{ item.phone }}</td>
+                                                <td>{{ item.IDline }}</td>
+                                                <td>{{ item.copy }}</td>
+                                                <td>{{ item.work }}</td>
+                                                <td>{{ item.work }}</td>
+                                                <td>{{ item.work }}</td>
+                                                <td>{{ item.work }}</td>
+                                                <td>{{ item.work }}</td>
+                                                <td>{{ item.work }}</td> -->
+                                                <td>1</td>
+                                                <td>Nano Tiktok	</td>
+                                                <td>www.tiktok.com</td>
+                                                <td>
+                                                    <mat-form-field class="flex-auto w-full">
+                                                        <input matInput required>
+                                                        <mat-error>ใส่ลิ้งดราฟที่ 1</mat-error>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td>แก้ไข</td>
+                                                <td>แก้ไข</td>
+                                                <td>
+                                                    <mat-form-field class="flex-auto w-full ">
+                                                        <input matInput required>
+                                                        <mat-error>ใส่ลิ้งดราฟที่ 2</mat-error>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td>แก้ไข</td>
+                                                <td>
+                                                    <mat-form-field class="flex-auto w-full ">
+                                                        <input matInput required>
+                                                        <mat-error>ใส่ลิ้งดราฟที่ 3</mat-error>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td>แก้ไข</td>
+                                                <td>แก้ไข</td>
+                                                <td>ผ่าน</td>
+                                                <td>รายละเอียดบรีฟ</td>
+                                                <td>2024-03-28</td>
+                                                <td>TRUE</td>
+                                                <td>www.tiktok.com</td>
+                                                <td>#1234=</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>฿500.00</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>TikTok review 10K</td>
+                                                <td>฿0.00</td>
+                                                <td>฿0.00</td>
+                                                <td>฿49</td>
+                                                <td>549.00</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>อรปรียา  แก้วประกาย</td>
+                                                <td>1562878262</td>
+                                                <td class="rounded-lg bg-purple-700 text-white text-center">ไทยพาณิชย์</td>
+                                                <td>อรปรียา  แก้วประกาย</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>252/ 217 แวนเทจคอนโด ถนนรัชดาภิเษก แขวง ลาดยาว เขตจตุจักร กรุงเทพมหานคร 10900 </td>
+                                                <td>'0639194851</td>
+                                                <td>heart2002. มีจุดค่ะ</td>
+                                                <td>https://drive.google.com/open?id=1eSTPnTu0esFcJxfDVmsL1nV2FLPRWT0P</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+
+                                            </tr>
+                                        </tbody>
+                                        <tbody *ngIf="dataRow?.length == 0">
+                                            <tr>
+                                                <td colspan="4" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="flex justify-end">
+                                        <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]"
+                                            aria-label="Select page">
+                                        </mat-paginator>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="กุมภาพันธ์"> กุมภาพันธ์ </mat-tab>
+                            <mat-tab label="มีนาคม"> มีนาคม </mat-tab>
+                            <mat-tab label="เมษายน"> เมษายน </mat-tab>
+                            <mat-tab label="พฤษภาคม"> พฤษภาคม </mat-tab>
+                            <mat-tab label="มิถุนายน"> มิถุนายน </mat-tab>
+                            <mat-tab label="กรกฎาคม"> กรกฎาคม </mat-tab>
+                            <mat-tab label="สิงหาคม"> สิงหาคม </mat-tab>
+                            <mat-tab label="กันยายน"> กันยายน </mat-tab>
+                            <mat-tab label="ตุลาคม"> ตุลาคม </mat-tab>
+                            <mat-tab label="พฤศจิกายน"> พฤศจิกายน </mat-tab>
+                            <mat-tab label="ธันวาคม"> ธันวาคม </mat-tab>
+                        </mat-tab-group>
+                    </div>
+
+
+
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

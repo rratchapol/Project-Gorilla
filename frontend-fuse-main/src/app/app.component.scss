@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+}
+
+::ng-deep .dataTables_length label {
+    display: none;
+}
+
+::ng-deep .dataTables_filter label {
+    display: none;
+}
+
+::ng-deep .dataTables_paginate {
+    display: none;
+}
+
+::ng-deep .dataTables_info {
+    display: none;
+}
+
+::ng-deep .mat-mdc-form-field-bottom-align {
+    display: none;
+}
+
+
+::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+    background-color: #06C755 !important;
+    border: none;
+}

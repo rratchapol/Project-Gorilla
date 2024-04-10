@@ -1,0 +1,214 @@
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">กรอกข้อมูลส่วนตัว Influencer</span>
+    </mat-toolbar>
+    <div class="flex p-4 w-full">
+        <div class="flex flex-col justify-between w-full">
+            <form [formGroup]="shortcutForm"
+                class="flex flex-col justify-center w-full mt-2 p-8 pb-4 bg-card rounded-2xl shadow">
+                <!-- แถว 1 -->
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field  class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>Name Account</mat-label>
+                        <input matInput required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field  class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>เพศ</mat-label>
+                        <!-- <input matInput [formControlName]="'gender'" required> -->
+                        <mat-select >
+                            <mat-option value="1">ชาย</mat-option>
+                            <mat-option value="2">หญิง</mat-option>
+                            <mat-option value="3">เพศทางเลือก</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>เบอร์ติดต่อ</mat-label>
+                        <input matInput [formControlName]="'phone'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>อาชีพ</mat-label>
+                        <input matInput [formControlName]="'occupation'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <!-- แถว 2 -->
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>อีเมล</mat-label>
+                        <input matInput  required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>ID Line</mat-label>
+                        <input matInput  required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>ประเภทคอนเทนต์</mat-label>
+                        <input matInput  required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>วัน/เดือน/ปี เกิด</mat-label>
+                        <input  matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <p class="ml-2 text-[15px] font-bold">กรอกข้อมลูส่วนตัวเพิ่มเติม</p>
+                <div class="mt-3">
+                    <div class="flex gt-xs:flex-row ">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-3/4 p-2">
+                            <mat-label>ที่อยู่จัดส่งสินค้ารีวิว</mat-label>
+                            <input  matInput>
+                            <!-- <mat-icon class="icon-size-5" 
+                    matSuffix [svgIcon]="'heroicons_solid:user-circle'">
+                </mat-icon> -->
+                        </mat-form-field>
+                        <mat-form-field [subscriptSizing]="'dynamic'" [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>จังหวัด</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let item of  this.location" [value]="item.id">{{item.name}}</mat-option>                                  
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex gt-xs:flex-row ">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-2/4 p-2">
+                            <mat-label>ชื่อบัญชีธนาคาร</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>เลขบัญชี</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>ธนาคาร</mat-label>
+                            <mat-select>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex gt-xs:flex-row ">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>ชื่อตามบัตรประชาชน</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>เลขบัตรประชาชน</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-2/4 p-2">
+                            <mat-label>ที่อยู่ตามหน้าบัตรประชาชน</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex gt-xs:flex-row ">
+                        <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                            <mat-label>สำเนาหน้าบัตรประชาชน</mat-label>
+                            <ngx-dropzone class=" h-13" (change)="onSelect($event)" >
+                                <ngx-dropzone-label>เลือกรูปภาพไฟล์</ngx-dropzone-label>
+                                <div *ngFor="let f of files">
+                                    <ngx-dropzone-image-preview [file]="f" ></ngx-dropzone-image-preview>
+                                </div>
+                            </ngx-dropzone>
+                        </div>
+                        <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                            <mat-label>สำเนาหน้าบุ๊คแบงค์</mat-label>
+                            <ngx-dropzone class=" h-13" (change)="onSelect($event)" >
+                                <ngx-dropzone-label>เลือกรูปภาพไฟล์</ngx-dropzone-label>
+                                <div *ngFor="let f of files">
+                                    <ngx-dropzone-image-preview [file]="f" [removable]="true" (removed)="onRemove(f)" ></ngx-dropzone-image-preview>
+                                </div>
+                            </ngx-dropzone>
+                        </div>
+                        <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-2/4 p-2">
+                            <mat-label>เคยทำงาน</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <p class="ml-2 text-[15px] font-bold">งานที่เคยทำ</p>
+                    <div class="flex gt-xs:flex-row mt-3">
+                        <mat-form-field  class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>ชื่องานชิ้นที่ 1</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field  class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>ชื่องานชิ้นที่ 2</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field  class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>ชื่องานชิ้นที่ 3</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field  class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                            <mat-label>ชื่องานชิ้นที่ 4</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+
+                    <div [formArrayName]="'returns_item'">
+                        <div class="p-fluid p-formgrid grid">
+                            <div class="field col-6 md:col-9">
+                                <label class="font-bold"></label>
+                            </div>
+                            <div class="field col-6 md:col-3">
+                                <button class="px-6 ml-3 bg-[#C23339] hover:bg-red-700 text-white rounded-lg" mat-flat-button  (click)="addApprover()">
+                                    เพิ่มข้อมูล
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-fluid p-formgrid grid mt-8 "
+                            *ngFor="let approver of returns_item.controls; let i = index" [formGroupName]="i">
+                            <div class="flex gt-xs:flex-row">
+                                <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                    <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                        <mat-label>ประเภท Social Media</mat-label>
+                                        <input matInput [placeholder]="'กรอกประเภท Social Media'" formControlName="item_id">
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                    <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                        <mat-label>Link</mat-label>
+                                        <input matInput [placeholder]="'กรอกLink'" formControlName="name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                    <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                        <mat-label>Name account</mat-label>
+                                        <input matInput [placeholder]="'กรอกName account'" formControlName="qty">
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                    <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                        <mat-label>Follower</mat-label>
+                                        <input matInput [placeholder]="'กรอกFollower'"
+                                            formControlName="price_per_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex items-center">
+                                    <button mat-flat-button  (click)="removeUserApprove(i)" >
+                                    <mat-icon  [color]="'warn'">delete</mat-icon>
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="flex items-center justify-end border-t px-8 py-5 bg-white">
+        <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" (click)="backTo()" mat-button>
+            ยกเลิก
+        </button>
+        <button class="px-10 rounded-lg ml-3 bg-[#C23339] hover:bg-red-700 text-white shadow-md" (click)="save()" mat-flat-button>
+            บันทึก
+        </button>
+    </div>
+</div>

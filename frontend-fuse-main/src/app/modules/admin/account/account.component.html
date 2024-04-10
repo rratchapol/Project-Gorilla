@@ -1,0 +1,136 @@
+<div class="flex-col flex w-full justify-between">
+    <mat-toolbar class="flex">
+        <span class="font-bold text-[20px]">ข้อมูลบัญชี</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+    <form class="flex flex-col h-full m-5 bg-card rounded-2xl shadow-[0px_10px_20px_1px_] shadow-gray-200 overflow-hidden"
+        [formGroup]="'form'">
+        <mat-tab-group class="" (selectedIndexChange)="selectedTab($event)">
+                <mat-tab class="w-fit" >
+                    <ng-template mat-tab-label><mat-icon [ngClass]="{'active-icon': activeTab === 0}" class="p-5">account_box</mat-icon
+                        >ข้อมูลส่วนตัว</ng-template>
+                    <div class="flex">
+                        <form class="flex flex-col  w-[712px]  m-3 p-5 bg-card rounded-2xl shadow-[0px_10px_20px_1px_] shadow-gray-200 overflow-hidden"
+                            [formGroup]="'form'">
+                            <p class="text-gray-400 text-center">
+                                ไฟล์ที่รองรับ *.jpeg, *.jpg, *.png,<br>
+                                สูงสุดไม่เกิน 3.1 MB</p>
+                        </form>
+                            <div class="flex justify-center grow">
+                                <form
+                                    class="flex flex-col w-[712px] m-3 p-8 pb-4 bg-card rounded-2xl shadow-[0px_10px_20px_1px_] shadow-gray-200 overflow-hidden"
+                                    [formGroup]="'form'">
+                                    <div class="grid grid-cols-2 w-full gap-3 ">
+                                        <div class="relative w-full">
+                                            <label class="absolute w-[20px] text-center -top-2 left-2 z-40 text-gray-400 text-sm bg-white"
+                                                for="">ชื่อ</label>
+                                            <mat-form-field 
+                                                class="flex-auto w-full " 
+                                                subscriptSizing="fixed">
+                                                <input
+                                                 matInput [placeholder]="'ระบุชื่อ'">
+                                                <mat-error>Required field!</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="relative w-full">
+                                            <label class="absolute  w-[50px] text-center -top-2 left-2 z-40 text-gray-400 text-sm bg-white"
+                                                for="">นามสกุล</label>
+                                            <mat-form-field 
+                                                class="flex-auto w-full" 
+                                                subscriptSizing="fixed">
+                                                <input 
+                                                matInput [placeholder]="'ระบุนามสกุล'">
+                                                <mat-error>Required field!</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="relative w-full">
+                                            <label class="absolute  w-[70px] text-center -top-2 left-2 z-40 text-gray-400 text-sm bg-white"
+                                                for="">เบอร์โทรศัพท์</label>
+                                            <mat-form-field 
+                                                class="flex-auto w-full">
+                                                <input matInput [placeholder]="'085-036-0033'">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="relative w-full">
+                                            <label class="absolute  w-[30px] text-center -top-2 left-2 z-40 text-gray-400 text-sm bg-white"
+                                                for="">อีเมล</label>
+                                            <mat-form-field 
+                                                class="flex-auto w-full" 
+                                                subscriptSizing="fixed">
+                                                <input 
+                                                required [formControlName]="'employeeNo'" 
+                                                matInput [placeholder]="'jayvion@asap.com'">
+                                                <mat-error>Required field!</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <label
+                                            class="absolute w-[45px] text-center -top-2 left-2 z-40 text-gray-400 text-sm bg-white"
+                                            for="">ตำแหน่ง</label>
+                                        <mat-form-field 
+                                        class="fuse-mat-dense flex-auto w-full">
+                                            <mat-select>
+                                                <mat-option value="1">Sale</mat-option>
+                                                <mat-option value="2">Sale</mat-option>
+                                                <mat-option value="3">Sale</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <label
+                                            class="absolute w-[35px] text-center -top-2 left-2 z-40 text-gray-400 text-sm bg-white"
+                                            for="">แผนก</label>
+                                        <mat-form-field 
+                                        class="fuse-mat-dense flex-auto w-full">
+                                            <mat-select>
+                                                <mat-option value="1">Team A</mat-option>
+                                                <mat-option value="2">Team B</mat-option>
+                                                <mat-option value="3">Team C</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <p>
+                                        <mat-toolbar class="bg-[#F4F4F4] rounded-lg">
+                                            <mat-icon 
+                                                svgIcon="heroicons_solid:information-circle">
+                                            </mat-icon>
+                                            <span class="pl-3">สำหรับการแก้ไข ตำแหน่ง กรุณาติดต่อ Admin </span>
+                                        </mat-toolbar>
+                                    </p>
+                                </form>
+                            </div>
+                        
+                    </div>
+                </mat-tab>
+                <mat-tab class="w-full " >
+                    <ng-template mat-tab-label
+                    ><mat-icon [ngClass]="{'active-icon': activeTab === 1}" class="p-5">vpn_key</mat-icon
+                    >รหัสผ่าน</ng-template>
+                <form class="flex flex-col  m-5 p-5 bg-card rounded-2xl shadow-[0px_10px_20px_1px_] shadow-gray-200 overflow-hidden"
+                    [formGroup]="'form'">
+                    <mat-form-field class="flex-auto w-full" subscriptSizing="fixed">
+                        <input required [formControlName]="'employeeNo'" matInput [placeholder]="'รหัสผ่านเดิม'">
+                        <mat-icon svgIcon="heroicons_solid:eye"></mat-icon>
+                        <mat-error>Required field!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto w-full" subscriptSizing="fixed">
+                        <input required [formControlName]="'employeeNo'" matInput [placeholder]="'รหัสผ่านใหม่'">
+                        <mat-icon svgIcon="heroicons_solid:eye"></mat-icon>
+                        <mat-error>Required field!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto w-full" subscriptSizing="fixed">
+                        <input required [formControlName]="'employeeNo'" matInput [placeholder]="'ยืนยันรหัสผ่านใหม่'">
+                        <mat-icon svgIcon="heroicons_solid:eye"></mat-icon>
+                        <mat-error>Required field!</mat-error>
+                    </mat-form-field>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+    </form>
+    <div class="flex justify-end w-full border-t px-8 py-5 bg-gray-50 dark:bg-gray-700">
+        <button class="rounded-md px-6 ml-3 "  mat-flat-button [color]="'primary'">
+            บันทึก
+        </button>
+    </div>
+</div>

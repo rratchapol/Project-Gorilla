@@ -1,0 +1,273 @@
+<div
+    class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+    <div class="flex">
+        <h2 class="text-xl font-bold">การจับคู่ Matching</h2>
+    </div>
+</div>
+<!-- openDialogUploadcsv -->
+
+<div class="bg-card m-4 p-4 rounded-md">
+
+    <div class="flex  gap-3 ">
+        <div>
+            <mat-form-field class="flex-initial w-120">
+                <mat-icon class="text-gray-400" svgIcon="heroicons_solid:magnifying-glass"></mat-icon>
+                <input matInput placeholder="ค้นหา">
+            </mat-form-field>
+        </div>
+
+        <div class="flex-initial ">
+            <mat-form-field class=" flex-auto  gt-xs:pl-3 w-50 ">
+                <mat-select [placeholder]="'บริษัททั้งหมด'" class="">
+                    <mat-option value="000-000-0000">Murphy</mat-option>
+                    <mat-option value="000-000-0032">Bessie </mat-option>
+                    <mat-option value="000-000-0043">Hawkins</mat-option>
+                    <mat-option value="000-000-0056">Savannah</mat-option>
+                    <mat-option value="000-000-0078">Kathryn</mat-option>
+                    <mat-option value="000-000-8500">Honda</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="flex justify-end flex-initial w-full ">
+            <button class="w-40 h-12 rounded-xl border-2 border-gray-200 hover:bg-slate-200 shadow-md">
+                <div class="flex justify-center">
+                    <mat-icon svgIcon="heroicons_outline:folder-plus"></mat-icon>
+                    <p class="mt-1 ml-2">
+                        จับคู่ อัปโหลด CSV
+                    </p>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead class="bg-gray-50">
+            <tr>
+                <th>รหัสผู้โดยสาร</th>
+                <th>ผู้โดยสาร</th>
+                <th>บริษัท</th>
+                <th>เบอร์ผู้โดยสาร</th>
+                <th>รหัสคนขับ</th>
+                <th>คนขับรถ</th>
+                <th>เบอร์คนขับ</th>
+                <th>จัดการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TH-192</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (2).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Maria Roselia
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-122-0293</td>
+                <td>ASAP0131</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (10).svg"
+                        alt="่รูปคน" />
+                    <a class="pt-2">
+                        Dianne Russell
+                    </a>
+                </td>
+                <td>089-199-0793</td>
+                <td>
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </td>
+
+
+            </tr>
+
+            <!-- <tr>
+                <td>TH-120</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (3).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Jetrin Wattana
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-5841</td>
+                <td>kakak-987</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (11).svg"
+                        alt="่รูปคน" />
+                    <a class="pt-2">
+                        Kathryn Murphy
+                    </a>
+                </td>
+                <td>082-587-5789</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr>
+            <tr>
+                <td>TH-NK123</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (4).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Pitcha Rusk
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-8540</td>
+                <td>Adat-124</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (9).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Bessie Cooper
+                    </a>
+                </td>
+                <td>062-959-5789</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr>
+            <tr>
+                <td>TH-589</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (5).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Alin Care
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-8540</td>
+                <td>Adfvv-865</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (6).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Alin Care
+                    </a>
+                </td>
+                <td>082-912-9789</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr>
+            <tr>
+                <td>ptn-888</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (7).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Jetrin Wattana
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-8540</td>
+                <td>Dafff-55</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (15).svg"
+                        alt="่รูปคน" />
+                    <a class="pt-2">
+                        Savannah Nguyen
+                    </a>
+                </td>
+                <td>082-959-1159</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr>
+            <tr>
+                <td>yl-999</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (6).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Savannah Nguyen
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-5140</td>
+                <td>Azzr-887</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (14).svg"
+                        alt="่รูปคน" />
+                    <a class="pt-2">
+                        Arlene McCoy
+                    </a>
+                </td>
+                <td>082-959-5799</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr>
+            <tr>
+                <td>psp-877</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (2).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Alin Care
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-8546</td>
+                <td>ASzc-5532</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (13).svg"
+                        alt="่รูปคน" />
+                    <a class="pt-2">
+                        Kathryn AlCare
+                    </a>
+                </td>
+                <td>082-959-5789</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr>
+            <tr>
+                <td>ptn-555</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (8).svg" alt="่รูปคน" />
+                    <a class="pt-2">
+                        Jetrin Wattana
+                    </a>
+                </td>
+                <td>ไทยประกันชีวิต</td>
+                <td>089-564-8659</td>
+                <td>Axcc0132</td>
+                <td class="flex">
+                    <img class="w-10 h-10 mr-2 rounded-full" src="assets/images/matching/Avatar (14).svg"
+                        alt="่รูปคน" />
+                    <a class="pt-2">
+                        Kathryn Murphy
+                    </a>
+                </td>
+                <td>082-959-5555</td>
+                <div class="flex flex-none w-0">
+                    <button mat-button (click)="openDialogfixdriver()">
+                        <mat-icon svgIcon="heroicons_mini:pencil-square"></mat-icon>
+                    </button>
+                </div>
+            </tr> -->
+
+        </tbody>
+    </table>
+
+    <!-- <mat-paginator [length]="100" [pageSize]="10" class="" [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="รายการต่อหน้า">
+    </mat-paginator> -->
+    <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+    </mat-paginator>
+    <!-- <mat-paginator style-paginator showFirstLastButtons [showTotalPages]="3" [length]="dataSource.data.length"
+        [pageSize]="3" [pageSizeOptions]="[3, 5, 10, 20]">
+    </mat-paginator> -->
+
+</div>

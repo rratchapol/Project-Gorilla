@@ -1,0 +1,137 @@
+<section class=" flex flex-col h-full justify-between ">
+
+    <mat-toolbar class="flex justify-between">
+        <button mat-icon-button class="example-icon text-5xl" aria-label="Example icon-button with menu icon">
+            <mat-icon svgIcon="heroicons_outline:x-mark"></mat-icon>
+        </button>
+        <span class="font-bold text-4xl">เพิ่มผู้โดยสาร</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+
+    <form class="flex justify-center py-2">
+        <mat-card class="w-[800px] h-auto rounded-2xl border-2 bg-card  shadow ">
+            <div class="">
+                <mat-card-content class="text-start text-[22px] font-bold">ข้อมูลลูกค้า</mat-card-content>
+            </div>
+
+            <div class=" ">
+
+
+                <div class=" ml-5 relative">
+                    <p class="text-gray-400 text-base absolute -top-2.5 z-10 px-1 h-6 ml-5 mr-5 text-center bg-white">
+                        ชื่อบริษัท
+                    </p>
+                    <mat-form-field class="flex-auto w-[760px] h-18" [ngClass]="formFieldHelpers"
+                        subscriptSizing="fixed">
+                        <input matInput [formControl]="fixedSubscriptInput" required placeholder="ระบุชื่อบริษัท"
+                            class=" border-2 border-slate-300 text-xl rounded-lg text-start  pl-2" value="">
+
+                    </mat-form-field>
+                </div>
+
+                <div class=" ml-5 relative">
+                    <p class="text-gray-400 text-base absolute -top-2 z-10 px-1 h-6 ml-5 text-center bg-white">
+                        รหัสผนักงาน
+                    </p>
+                    <mat-form-field class="flex-auto w-[360px] h-18" [ngClass]="formFieldHelpers">
+                        <input matInput placeholder="ระบุรหัสผนักงาน"
+                            class=" border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                    </mat-form-field>
+                </div>
+
+                <div class="grid grid-cols-2">
+                    <div class=" ml-5 relative ">
+                        <p class="text-gray-400 text-base absolute -top-2 z-10 px-1 h-5 ml-5 text-center bg-white">
+                            ชื่อ
+                        </p>
+                        <mat-form-field class="flex-auto w-[360px] h-18" [ngClass]="formFieldHelpers">
+                            <input matInput placeholder="ระบุชื่อ"
+                                class=" border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                        </mat-form-field>
+                    </div>
+
+                    <div class=" ml-5 relative ">
+                        <p class="text-gray-400 text-base absolute -top-2 z-10 px-1 h-5 ml-5 text-center bg-white">
+                            นามสกุล
+                        </p>
+                        <mat-form-field class="w-[360px] h-18" [ngClass]="formFieldHelpers">
+                            <input matInput placeholder="ระบุนามสกุล"
+                                class=" border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                        </mat-form-field>
+                    </div>
+
+                    <div class=" ml-5 relative ">
+                        <p class="text-gray-400 text-base absolute -top-2 z-10 px-1 h-5 ml-5 text-center bg-white">
+                            อีเมล
+                        </p>
+                        <mat-form-field class="w-[360px] h-18" [ngClass]="formFieldHelpers">
+                            <input matInput placeholder="ระบุอีเมล"
+                                class=" border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                        </mat-form-field>
+                    </div>
+                    <div class=" ml-5 relative ">
+                        <p class="text-gray-400 text-base absolute -top-2 z-10 px-1 h-5 ml-5 text-center bg-white">
+                            เบอร์โทรศัพท์ติดต่อ
+                        </p>
+                        <mat-form-field class="w-[360px] h-18">
+                            <input matInput placeholder="000-000-0000"
+                                class="border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <section class="ml-5 mr-5 flex justify-between  example-section">
+                    <mat-checkbox class="example-margin text-[22px]" color="primary">
+                        <p class="text-[22px] text-gray-400">
+                            Invite Email สำหรับระบบ ASAPCustomer
+                        </p>
+                    </mat-checkbox>
+
+                    <div class="cursor-pointer text-[22px] text-gray-400">ส่งอีเมลอีกครั้ง</div>
+                </section>
+                <div class="ml-5">
+                    <p class="font-bold text-[22px]">สถานะบัญชี</p>
+                </div>
+
+                <div class="ml-5 flex gap-3">
+
+                    <mat-radio-group aria-label="Select an option " [value]="'1'">
+                        <mat-radio-button value="1" color="primary">
+                            <p class="text-[22px]">รอเปิดใช้งาน</p>
+                        </mat-radio-button>
+                        <mat-radio-button value="2" color="primary">
+                            <p class="text-[22px]">ใช้งานอยู่</p>
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div class="flex py-3">
+                    <div class=" ml-5 relative ">
+                        <p class="text-gray-400 text-sm absolute -top-2 z-10 px-1 h-5 ml-5 text-center bg-white">
+                            จุดรับส่ง Google map Link
+                        </p>
+                        <mat-form-field class="w-[360px] h-18">
+                            <input matInput placeholder="ลูกค้าสามารถระบุเองได้"
+                                class=" border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                        </mat-form-field>
+                    </div>
+                    <div class=" ml-5 relative ">
+                        <p class="text-gray-400 text-sm absolute -top-2 z-10 px-1 h-5 ml-5 text-center bg-white">
+                            หมายเหตุจุดรับส่ง
+                        </p>
+                        <mat-form-field class="w-[360px] h-18">
+                            <input matInput placeholder="หมายเหตุ ลูกค้าสามารถระบุเองได้"
+                                class=" border-2 border-slate-300 text-xl rounded-lg text-start pl-2" value="">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+            </div>
+        </mat-card>
+    </form>
+    <mat-toolbar class="flex justify-end mt-5 mr-10 gap-3 items-center w-full h-24 bg-crad dark:bg-gray-700">
+        <button mat-raised-button>ยกเลิก</button>
+        <button mat-raised-button color="primary" class="text-white">บันทึก</button>
+    </mat-toolbar>
+</section>

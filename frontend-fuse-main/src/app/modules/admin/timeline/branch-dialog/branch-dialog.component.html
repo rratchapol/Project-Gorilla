@@ -1,0 +1,65 @@
+<div class="md:max-w-7xl   w-auto">
+    <h1 mat-dialog-title class="text-xl font-semibold mb-4 ml-5">ค่าใช้จ่ายคิดธีมงาน</h1>
+    <div mat-dialog-content class="max-h-96 max-w-320 overflow-y-auto md:max-h-200  md:max-w-320">
+        <form [formGroup]="addForm">
+            <div class="flex-auto">
+                <div class="flex  mx-3 md:flex mb-6">
+                    <div class="md:w-full px-3">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                        <mat-label>คนภายใน/ภายนอก</mat-label>
+                        <input matInput [formControlName]="'gender'" required>
+                        <mat-select>
+                            <mat-option value="1">ภายใน</mat-option>
+                            <mat-option value="2">ภายนอก</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </div>
+                    <div class="md:w-full px-3 ">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                            <mat-label>ค่าใช้จ่าย</mat-label>
+                            <input matInput [placeholder]="'กรุณาระบุข้อมูล'" formControlName="sell">
+                        </mat-form-field>
+                    </div>
+                    <div class="md:w-full px-3">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                            <mat-label>ชื่อคนจัดทำ</mat-label>
+                            <input matInput [placeholder]="'กรุณาระบุข้อมูล'" formControlName="byname">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex  mx-3 md:flex mb-6">
+                    <div class="md:w-full px-3">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                        <mat-label>คนภายใน/ภายนอก</mat-label>
+                        <input matInput [formControlName]="'กรุณาระบุข้อมูล'" required>
+                        <mat-select>
+                            <mat-option value="1">ภายใน</mat-option>
+                            <mat-option value="2">ภายนอก</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </div>
+                    <div class="md:w-full px-3">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                            <mat-label>ค่าใช้จ่าย</mat-label>
+                            <input matInput [placeholder]="'กรุณาระบุข้อมูล'" formControlName="sell">
+                        </mat-form-field>
+                    </div>
+                    <div class="md:w-full px-3">
+                        <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                            <mat-label>ชื่อคนจัดทำ</mat-label>
+                            <input matInput [placeholder]="'กรุณาระบุข้อมูล'" formControlName="byname">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div mat-dialog-actions class="flex justify-end mt-4">
+        <button class="px-6 ml-3" mat-flat-button [color]="'primary'" >
+            ตกลง
+        </button>
+        <button class="px-6 ml-3" mat-flat-button [color]="'warn'" (click)="onCancelClick()">
+            ยกเลิก
+        </button>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="flex flex-col justify-between w-full">
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">แก้ไข Checklist Draft & Stat</span>
+    </mat-toolbar>
+</div>
+<div class="flex p-4 w-full h-full">
+    <div class="flex flex-col justify-between w-full">
+        <form [formGroup]="Form" class="flex flex-col justify-center w-full mt-2 p-8 pb-4 bg-card rounded-2xl shadow">
+            <!-- แถว 1 -->
+            <div class="flex gt-xs:flex-row ">
+
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-full p-2">
+                    <mat-label>ชื่อ</mat-label>
+                    <input matInput [formControlName]="'name'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+               
+            </div>
+
+            <!-- แถว 2 -->
+            <div class="flex gt-xs:flex-row ">
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                    <mat-label>เรทจ้าง</mat-label>
+                    <input matInput [formControlName]="'code'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ยอด</mat-label>
+                    <input matInput [formControlName]="'detail'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>รายละเอียดค่าใช้จ่าย</mat-label>
+                    <input matInput [formControlName]="'detailbuy'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ประเภทคอนเทนต์</mat-label>
+                    <input matInput [formControlName]="'content'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex gt-xs:flex-row ">
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                    <mat-label>Vat 7%</mat-label>
+                    <input matInput [formControlName]="'vat'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>หัก ณ ที่จ่าย 2%,3%,5%</mat-label>
+                    <input matInput [formControlName]="'oh'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ค่าสินค้า</mat-label>
+                    <input matInput [formControlName]="'product'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ยอดโอน</mat-label>
+                    <input matInput [formControlName]="'sell'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex gt-xs:flex-row ">
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>วันที่เริ่มจ่ายเงิน</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker startView="buy" [startAt]="startDate"></mat-datepicker>
+                  </mat-form-field>
+                  
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>หมายเหตุ</mat-label>
+                    <input matInput [formControlName]="'description'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+              
+            </div>
+            <div class="flex gt-xs:flex-row ">
+        
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>E-Mail ส่งใบหัก ณ ที่จ่าย</mat-label>
+                    <input matInput [formControlName]="'email'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ลิ้งค์ใบหัก ณ ที่จ่าย</mat-label>
+                    <input matInput [formControlName]="'ser'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+              
+            </div>
+            <div class="flex gt-xs:flex-row ">
+        
+                <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                    <label for="avatar">ใบเสนอราคา</label>
+                    <div class="p-2.5 border border-gray-300 rounded-md">
+                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+                    </div>
+                </div>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>พนักงานรับผิดชอบ</mat-label>
+                    <input matInput [formControlName]="'member'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+              
+            </div>
+           
+        </form>
+
+    </div>
+</div>
+<div class="flex items-center justify-end border-t px-8 py-5 bg-white">
+    <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" mat-button (click)="backTo()">
+        ยกเลิก
+    </button>
+    <button class="px-10 rounded-lg ml-3 bg-[#C23339] text-white shadow-md" mat-flat-button (click)="save()">
+        บันทึก
+    </button>
+</div>
+</div>

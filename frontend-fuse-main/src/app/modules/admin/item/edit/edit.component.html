@@ -1,0 +1,80 @@
+<div class="flex flex-col justify-between w-full">
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">แก้ไขพนักงาน</span>
+    </mat-toolbar>
+</div>
+<div class="flex p-4 w-full h-full">
+    <div class="flex flex-col justify-between w-full">
+        <form [formGroup]="Form" class="flex flex-col justify-center w-full mt-2 p-8 pb-4 bg-card rounded-2xl shadow">
+            <!-- แถว 1 -->
+            <div class="flex gt-xs:flex-row ">
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                    <mat-label>คำนำหน้า</mat-label>
+                    <mat-select>
+                        <mat-option value="1">นาย</mat-option>
+                        <mat-option value="2">นาง</mat-option>
+                        <mat-option value="3">นางสาว</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ชื่อ</mat-label>
+                    <input matInput [formControlName]="'name'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>นามสกุล</mat-label>
+                    <input matInput [formControlName]="'lastname'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ชื่อเล่น</mat-label>
+                    <input matInput [formControlName]="'nickname'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- แถว 2 -->
+            <div class="flex gt-xs:flex-row ">
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                    <mat-label>รหัสพนักงาน</mat-label>
+                    <input matInput [formControlName]="'code'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>เบอร์โทรศัพท์</mat-label>
+                    <input matInput [formControlName]="'phone'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>ตำแหน่งงาน</mat-label>
+                    <input matInput [formControlName]="'position'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>แผนก</mat-label>
+                    <input matInput [formControlName]="'department'" required>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex gt-xs:flex-row ">
+                <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                    <mat-label>งานที่ได้รับมอบหมาย</mat-label>
+                    <input matInput [formControlName]="'work'" required>
+                    <textarea matInput [rows]="3"></textarea>
+                    <mat-error>กรุณากรอกข้อมูล</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="flex items-center justify-end border-t px-8 py-5 bg-white">
+    <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" mat-button (click)="backTo()">
+        ยกเลิก
+    </button>
+    <button class="px-10 rounded-lg ml-3 bg-[#C23339] text-white shadow-md" mat-flat-button (click)="save()">
+        บันทึก
+    </button>
+</div>
+</div>

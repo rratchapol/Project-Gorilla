@@ -1,0 +1,86 @@
+<div class="flex flex-col h-full">
+    <mat-toolbar class="flex justify-between">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="backto()">
+            <mat-icon svgIcon="feather:x"></mat-icon>
+        </button>
+        <span class="font-bold text-[20px]" *ngIf="ACTION === 'CREATE'">เพิ่มพนักงาน</span>
+        <span class="font-bold text-[20px]" *ngIf="ACTION === 'UPDATE'">แก้ไขพนักงาน</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+    <div class="flex flex-col justify-between grow">
+        <div class="flex justify-center grow">
+            <form class="flex flex-col w-[712px] mt-8 p-8 pb-4 bg-card rounded-2xl shadow-lg shadow-gray-300 "
+                [formGroup]="form">
+                <div class="grid grid-cols-2 w-full gap-4">
+                    <div class="relative w-full">
+                        <label class="text-gray-400 text-sm absolute -top-2 z-10 bg-white text-center w-[20px] left-3 "
+                            for="">ชื่อ</label>
+                        <mat-form-field class="flex-auto w-full text-sm" subscriptSizing="fixed">
+                            <input matInput [formControlName]="'employeename'" required placeholder="ระบุชื่อ">
+                            <mat-error>Required field!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="relative w-full">
+                        <label class="text-gray-400 text-sm absolute -top-2 z-10 bg-white text-center w-[50px] left-3"
+                            for="">นามสกุล</label>
+                        <mat-form-field class="flex-auto w-full" subscriptSizing="fixed">
+                            <input matInput [formControlName]="'employeesurename'" required placeholder="ระบุนามสกุล">
+                            <mat-error>Required field!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="relative w-full">
+                        <label class="text-gray-400 text-sm absolute -top-2 z-10 bg-white text-center w-[100px] left-3"
+                            for="">เบอร์โทรศัพท์ติดต่อ</label>
+                        <mat-form-field class="flex-auto w-full" subscriptSizing="fixed">
+                            <input required [formControlName]="'employeephone'" matInput [placeholder]="'000-000-0000'">
+                            <mat-error>Required field!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="relative w-full">
+                        <label class="text-gray-400 text-sm absolute -top-2 z-10 bg-white text-center w-[30px] left-3"
+                            for="">อีเมล</label>
+                        <mat-form-field class="flex-auto w-full" subscriptSizing="fixed">
+                            <input required [formControlName]="'employeeEmail'" matInput [placeholder]="'ระบุอีเมล'">
+                            <mat-error>Required field!</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="relative w-full gt-xs:flex-row">
+                    <label class="text-gray-400 text-sm absolute -top-2 z-10 bg-white text-center w-[45px] left-3"
+                        for="">ตำแหน่ง</label>
+                    <mat-form-field class="flex-auto w-full gt-xs:pr-3">
+                        <mat-select [formControlName]="'typeofwork'" [placeholder]="'-เลือกตำแหน่ง-'">
+                            <!-- (selectionChange)="test($event)" -->
+                            <mat-option *ngFor="let typeofwork of typeofworks"
+                                [value]="typeofwork.id">{{typeofwork.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <h1 class="font-bold text-[18px]">แผนก</h1>
+                <mat-radio-group [formControlName]="'department'" class="flex flex-col" aria-label="Select an option">
+                    <mat-radio-button color="primary" [value]=1>ฝ่ายจัดหาบุคลากร</mat-radio-button>
+                    <mat-radio-button color="primary" [value]=2>ฝ่ายบัญชี</mat-radio-button>
+                    <mat-radio-button color="primary" [value]=3>ฝ่ายIT</mat-radio-button>
+                    <mat-radio-button color="primary" [value]=4>ฝ่ายจัดซื้อ</mat-radio-button>
+                    <mat-radio-button color="primary" [value]=5>ฝ่ายบริการลูกค้า</mat-radio-button>
+                </mat-radio-group>
+            </form>
+        </div>
+        <div class="flex items-center justify-end border-t  mt-8 px-8 py-5 bg-white dark:bg-gray-700 bottom-0 w-full ">
+            <div class="flex-initial w-[1300px] " (click)="opendialogdeletecustomer()">
+                <button mat-stroked-button color="primary" *ngIf="ACTION == 'UPDATE' "
+                    class="gap-2 text-primary-600 border-2 border-red-500 rounded-xl">ลบพนักงาน
+                    <mat-icon class="text-primary-500" svgIcon="heroicons_outline:trash"></mat-icon>
+                </button>
+            </div>
+            <div class="flex flex-auto ">
+                <button class="px-8 ml-3 rounded-md flex flex-auto " mat-raised-button>
+                    ยกเลิก
+                </button>
+                <button class="px-8 ml-3 shadow-sm rounded-md" mat-flat-button [color]="'primary'" (click)="Submit()">
+                    บันทึก
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

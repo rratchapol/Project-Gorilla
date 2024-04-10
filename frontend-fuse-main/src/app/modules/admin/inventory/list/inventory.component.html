@@ -1,0 +1,79 @@
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">ข้อมูลลูกค้า</span>
+    </mat-toolbar>
+    <div class="flex p-4 w-full">
+        <div class="flex flex-col justify-between w-full">
+            <form class="flex flex-col justify-center w-full  bg-card rounded-2xl shadow">
+                <div class="bg-card m-4 p-4 rounded-md">
+                    <div class="flex mb-3">
+                        <div class="flex gap-2">
+                            <mat-form-field class="flex h-12 w-80">
+                                <mat-icon class="text-gray-400" svgIcon="heroicons_solid:magnifying-glass"></mat-icon>
+                                <input matInput placeholder="ค้นหา">
+                            </mat-form-field>
+                            <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 h-12  w-50">
+                                <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปี">
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="flex justify-end flex-initial gap-3 w-full ">
+                            <button class=" h-12 w-40 text-white rounded-xl shadow-sm bg-[#C23339] hover:bg-red-900"
+                                (click)="addElement()">
+                                <div class="flex justify-center">
+                                    <mat-icon class="text-white" svgIcon="heroicons_outline:plus-circle"></mat-icon>
+                                    <p class="mt-1 ml-2">
+                                        เพิ่มชื่อลูกค้า
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th>จัดการ</th>
+                                <th>ชื่อแบรนด์สินค้า</th>
+                                <th>เบอร์ติดต่อ</th>
+                                <th>อีเมล</th>
+                                <th>รหัสลูกค้า</th>
+                            </tr>
+                        </thead>
+                        <!-- <tbody *ngIf="dataRow?.length != 0">
+                            <tr *ngFor="let item of dataRow; let i = index"> -->
+                                <tbody>
+                                    <tr>
+                                <td>
+                                    <button mat-icon-button color="warn" >
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                                <!-- <td>{{ pages.begin + (i + 1) }}</td> -->
+                                <!-- <td>{{ item.name }}</td>
+                                <td>{{ item.tel }}</td>
+                                <td>{{ item.email }}</td>
+                                <td>{{ item.code }}</td> -->
+                           <td>**********</td>
+                           <td>**********</td>
+                           <td>**********</td>
+                           <td>**********</td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="dataRow?.length == 0">
+                            <tr>
+                                <td colspan="4" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="flex justify-end">
+                        <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

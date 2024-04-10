@@ -1,0 +1,113 @@
+<div class="h-[600px] flex flex-col justify-between">
+    <form [formGroup]="formGroup">
+        <div class=" ">
+            <div class="flex justify-between">
+                <div>
+                    <h2 class="xl:text-4xl sm:text-xl text-lg font-bold">แก้ไขคนขับ</h2><br />
+                </div>
+                <button mat-icon-button mat-dialog-close class="example-icon "
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon svgIcon="heroicons_outline:x-mark" class=""></mat-icon>
+                </button>
+            </div>
+
+
+            <div class="">
+                <h1 class="font-bold xl:text-3xl sm:lg text-base">ข้อมูลผู้โดยสาร</h1>
+            </div>
+
+
+            <div class="grid xl:grid-cols-4 xl:gap-5 lg:grid-cols-4 lg:gap-5  pt-3">
+                <div class="flex  ">
+                    <img class="w-10 h-10 mr-4 mb-3 rounded-full" src="assets/images/dialog/Avatar (1).svg"
+                        alt="Card cover image">
+
+                    <div class="xl:text-base sm:text-sm text-sm">
+                        <p> รหัสผู้โดยสาร</p>
+                        <p class="font-semibold">TH-192</p>
+                    </div>
+                </div>
+                <div class="xl:text-base sm:text-sm text-sm">
+                    <p> ผู้โดยสาร</p>
+                    <p class="font-semibold">Maria Roselia</p>
+                </div>
+                <div class="xl:text-base sm:text-sm text-sm">
+                    <p> บริษัท</p>
+                    <p class="font-semibold">ไทยประกันชีวิต</p>
+                </div>
+                <div class="xl:text-base sm:text-sm text-sm">
+                    <p>เบอร์โทรศัพท์</p>
+                    <p class="font-semibold">089-122-0293</p>
+                </div>
+            </div>
+
+            <div class="font-bold xl:text-3xl sm:text-base text-base pt-5 ">คนขับคนเดิม</div>
+
+            <div class="grid xl:grid-cols-4 xl:gap-5 lg:grid-cols-4 lg:gap-5 pt-3 ">
+                <div class="flex ">
+                    <img class="w-10 h-10 mr-4 mb-3 rounded-full" src="assets/images/dialog/Avatar.svg"
+                        alt="Card cover image">
+                    <div class="xl:text-base sm:text-sm text-sm">
+                        <p> รหัสคนขับ</p>
+                        <p class="font-semibold">TH-192</p>
+                    </div>
+                </div>
+
+                <div class="xl:text-base sm:text-sm text-sm">
+                    <p> คนขับรถ</p>
+                    <p class="font-semibold">Maria Roselia</p>
+                </div>
+                <div class="xl:text-base sm:text-sm text-sm">
+                    <p>เบอร์โทรศัพท์</p>
+                    <p class="font-semibold">000-000-0000</p>
+                </div>
+
+            </div>
+
+            <div class="font-bold xl:text-3xl sm:text-base text-base pt-5 pb-5">คนขับคนใหม่</div>
+            <div class="relative">
+                <div class=" bg-white p-2 absolute ml-3 z-10  -top-5 text-gray-400">รหัสพนักงาน</div>
+                <mat-form-field class=" flex-auto  gt-xs:pl-3 w-full">
+                    <mat-select [placeholder]="'-เลือกคนขับ-'" [formControlName]="'driver'"
+                        (selectionChange)="OnChanges()" class="">
+                        <mat-option value="000-000-0000">ASAP0132 Kathryn Murphy</mat-option>
+                        <mat-option value="000-000-0032">ASAP0012 Bessie Cooper</mat-option>
+                        <mat-option value="000-000-0043">ASAP0014 Guy Hawkins</mat-option>
+                        <mat-option value="000-000-0056">ASAP0017 Savannah Nguyen</mat-option>
+                        <mat-option value="000-000-0078">ASAP0132 Kathryn Murphy</mat-option>
+                        <mat-option value="000-000-8500">ASAP0012 Bessie Cooper</mat-option>
+                        <mat-option value="000-000-9900">ASAP0014 Guy Hawkins</mat-option>
+                        <mat-option value="000-082-0000">ASAP0017 Savannah Nguyen</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div *ngIf="this.formGroup.value.driver" class="grid xl:grid-cols-4 xl:gap-5 lg:grid-cols-4 lg:gap-5  ">
+                <div class="flex">
+                    <img class="w-10 h-10 mr-4 rounded-full" src="assets/images/dialog/Avatar (2).svg" alt="่รูปคน" />
+                    <div class="xl:text-base sm:text-sm text-xs">
+                        <p>เบอร์โทรศัพท์</p>
+                        <p class="font-semibold">{{this.item}}</p>
+                    </div>
+                    <!-- <div>
+                        <p> ผู้โดยสาร</p>
+                        <p class="font-semibold">Maria Roselia</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <!-- <mat-toolbar> -->
+    <div class="flex justify-center shrink-0 items-center mt-6 sm:mt-0 mr-5 gap-3 sm:ml-4">
+        <!-- <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+        <button class="w-full shadow-lg rounded-lg text-black" mat-button mat-dialog-close>
+            ยกเลิก
+        </button>
+        <button color="primary" class="px-6 ml-3 shadow-lg w-full rounded-lg text-white " mat-flat-button>
+            บันทึก
+        </button>
+    </div>
+    <!-- </mat-toolbar> -->
+</div>

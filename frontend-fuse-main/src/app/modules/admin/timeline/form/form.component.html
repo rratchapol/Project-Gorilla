@@ -1,0 +1,85 @@
+<div class="flex flex-col justify-between w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">เพิ่มข้อมูล Timeline</span>
+    </mat-toolbar>
+    <div class="flex p-4 w-full h-full">
+        <div class="flex flex-col justify-between w-full">
+            <form [formGroup]="shortcutForm"
+                class="flex flex-col justify-center w-full mt-2 p-8 pb-4 bg-card rounded-2xl shadow">
+                <!-- แถว 1 -->
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>รายละเอียด</mat-label>
+                        <input matInput [formControlName]="'name'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>จำนวนคน</mat-label>
+                        <input matInput [formControlName]="'human'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <!-- แถว 2 -->
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>KPI(View)</mat-label>
+                        <input matInput [formControlName]="'kpi'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>วันที่ส่ง Profile</mat-label>
+                        <input [formControlName]="'dateprofile'" matInput [matDatepicker]="datepicker">
+                        <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                          <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                          </mat-datepicker-actions>
+                        </mat-datepicker>
+                      </mat-form-field>
+                      
+                      <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pr-3 w-1/4 p-2">
+                        <mat-label>วันที่เริ่มส่งดราฟ</mat-label>
+                        <mat-date-range-input [rangePicker]="rangePicker">
+                          <input [formControlName]="'datedrft'" matStartDate placeholder="Start date">
+                          <input matEndDate placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #rangePicker>
+                          <mat-date-range-picker-actions>
+                            <button mat-button matDateRangePickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                          </mat-date-range-picker-actions>
+                        </mat-date-range-picker>
+                      </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>วันที่ลงงาน</mat-label>
+                        <input matInput [formControlName]="'datework'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                
+                 
+                </div>
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3  p-2">
+                        <mat-label>หมายเหตุ</mat-label>
+                        <input matInput [formControlName]="'description'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="flex justify-end border-t px-8 py-5 bg-white">
+        <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" mat-button>
+            ยกเลิก
+        </button>
+        <button class="px-10 rounded-lg ml-3 bg-[#C23339] hover:bg-red-700 text-white shadow-md" (click)="save()" mat-flat-button>
+            บันทึก
+        </button>
+    </div>
+</div>

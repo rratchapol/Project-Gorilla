@@ -1,0 +1,30 @@
+:host {
+    display: block;
+  }
+
+//   ::ng-deep.mat-mdc-paginator-range-label{
+//     background-color: black !important;
+//     border-radius: 10px;
+//     color: white;
+//     padding: 5px;
+//     display:flex;
+//     justify-content: space-between;;
+
+//   }
+::ng-deep.mat-mdc-paginator-range-label {
+    background-color: #010101;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    order:1;
+  }
+::ng-deep.mat-mdc-paginator-navigation-previous{
+    order: 0;
+  }
+::ng-deep.mat-mdc-paginator-navigation-next{
+    order:2;
+  }
+  ::ng-deep.mat-mdc-paginator-container{
+    justify-content:space-between !important;
+    width: 100% ;
+  }

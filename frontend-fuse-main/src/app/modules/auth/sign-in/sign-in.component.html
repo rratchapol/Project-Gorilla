@@ -1,0 +1,72 @@
+<div class="flex flex-col flex-auto items-center sm:justify-center min-w-0 md:p-8">
+    <div class="flex md:w-full md:max-w-6xl sm:rounded-2xl sm:shadow overflow-hidden sm:bg-card">
+        <div class="flex w-full sm:w-auto py-8 px-4 sm:p-12 items-center md:p-16">
+            <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0 ">
+                <!-- Logo -->
+                <div class="w-20">
+                    <img src="assets/images/logo/LOGO.png">
+                </div>
+
+                <!-- Title -->
+               
+                <div class="mt-9 text-3xl  tracking-tight leading-tight">เข้าสู่ระบบ Golilla Idea</div>
+                
+
+                <!-- Sign in form -->
+                <form
+                    class="mt-8"
+                    [formGroup]="signInForm"
+                    #signInNgForm="ngForm">
+                    <button
+                    class="fuse-mat-button-large w-full mt-6 rounded-xl bg-[#06C755] "
+                    mat-flat-button
+                    [disabled]="signInForm.disabled"
+                    >
+                    <div class="flex items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/LINE_New_App_Icon_%282020-12%29.png/900px-LINE_New_App_Icon_%282020-12%29.png" alt="" 
+                    class="w-8 h-8">
+                    <span *ngIf="!signInForm.disabled" class="text-white text-lg flex">
+                    
+                            <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2003941559&redirect_uri=https://frontend-fuse.vercel.app/dashboards/project&state=12345abcde&scope=profile%20openid">เข้าสู่ระบบด้วย Line</a>                  
+                    </span> 
+                    </div>
+                    <mat-progress-spinner
+                        *ngIf="signInForm.disabled"
+                        [diameter]="24"
+                        [mode]="'indeterminate'"></mat-progress-spinner>
+                </button>
+                    <button
+                        class="fuse-mat-button-large w-full mt-6 rounded-xl bg-[#C23339] "
+                        mat-flat-button
+                        [disabled]="signInForm.disabled"
+                        (click)="signInnn()">
+                        <span *ngIf="!signInForm.disabled" class="text-white text-lg">
+                            เข้าสู่ระบบลูกค้า
+                        </span>
+                        <mat-progress-spinner
+                            *ngIf="signInForm.disabled"
+                            [diameter]="24"
+                            [mode]="'indeterminate'"></mat-progress-spinner>
+                    </button>
+                    <button
+                        class="fuse-mat-button-large w-full mt-6 rounded-xl bg-[#C23339]"
+                        mat-flat-button
+                        [disabled]="signInForm.disabled"
+                        (click)="signInn()">
+                        <span *ngIf="!signInForm.disabled" class="text-white text-lg">
+                            เข้าสู่ระบบพนักงาน
+                        </span>
+                        <mat-progress-spinner
+                            *ngIf="signInForm.disabled"
+                            [diameter]="24"
+                            [mode]="'indeterminate'"></mat-progress-spinner>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="relative hidden md:flex flex-auto items-center justify-center h-full w-full md:w-full  overflow-hidden">
+            <img width="100%" height="100%" class="h-full w-full" src="assets/images/logo/gorilla.png">
+            </div>
+    </div>
+</div>
+

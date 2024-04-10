@@ -1,0 +1,169 @@
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">ข้อมูลพนักงาน</span>
+    </mat-toolbar>
+    <div class="flex p-4 w-full">
+        <div class="flex flex-col justify-between w-full">
+            <form class="flex flex-col justify-center w-full  bg-card rounded-2xl shadow">
+                <div class="bg-card m-4 p-4 rounded-md">
+                    <div class="flex   gap-3 mb-3">
+                        <div class="flex gap-2">
+                            <mat-form-field class="flex-initial w-120">
+                                <mat-icon class="text-gray-400" svgIcon="heroicons_solid:magnifying-glass"></mat-icon>
+                                <input matInput placeholder="ค้นหา">
+                            </mat-form-field>
+                        </div>
+                        <div class="flex justify-end flex-initial gap-3 w-full ">
+                            <button class=" h-12 w-40 text-white rounded-xl shadow-sm bg-[#C23339] hover:bg-red-900"
+                                (click)="gotoAaddriver()">
+                                <div class="flex justify-center">
+                                    <mat-icon class="text-white" svgIcon="heroicons_outline:plus-circle"></mat-icon>
+                                    <p class="mt-1 ml-2">
+                                        เพิ่มพนักงาน
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="w-[100px]">จัดการ</th>
+                                <th>รหัสพนักงาน</th>
+                                <th>คำนำหน้า</th>
+                                <th>ชื่อ</th>
+                                <th>นามสกุล</th>
+                                <th>รายละเอียด</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button mat-icon-button color="warn">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                                <!-- <td>{{ pages.begin + (i + 1) }}</td> -->
+                                <td>AB001</td>
+                                <td>นางสาว</td>
+                                <td>อิ่มอกอิ่มใจ</td>
+                                <td>อิ่มฟู</td>
+                                <td>
+                                    <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                                        (click)="toggleDetails()">
+                                        <mat-icon class="icon-size-5"
+                                            [svgIcon]="toggle ? 'heroicons_solid:chevron-up' : 'heroicons_solid:chevron-down'"></mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="dataRow?.length == 0">
+                            <tr>
+                                <td colspan="7" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="flex w-full mt-4">
+                        <ng-container class="w-full" *ngIf="toggle">
+                            <ng-container class="w-full"
+                                *ngTemplateOutlet="rowDetailsTemplate;context: {$implicit: product}"></ng-container>
+                        </ng-container>
+                        <div class="shadow-lg">
+                            <ng-template class="w-full " #rowDetailsTemplate let-product>
+                                <div class="flex flex-col justify-between w-full" >
+                                <div class=" overflow-hidden w-full ">
+                                    <div class="flex w-full">
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full">
+                                                <mat-label>รหัสพนักงาน</mat-label>
+                                                <input matInput [placeholder]="'กรุณาระบุรหัสพนักงาน'">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                                                <mat-label>คำนำหน้า</mat-label>
+                                                <mat-select>
+                                                    <mat-option [value]="1">นาย</mat-option>
+                                                    <mat-option [value]="0">นางสาว</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full">
+                                                <mat-label>ชื่อ</mat-label>
+                                                <input matInput [placeholder]="'กรุณาระบุชื่อ'">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full">
+                                                <mat-label>นามสกุล</mat-label>
+                                                <input matInput [placeholder]="'กรุณาระบุนามสกุล'">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="flex w-full">
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full">
+                                                <mat-label>ชื่อเล่น</mat-label>
+                                                <input matInput [placeholder]="'กรุณาระบุชื่อเล่น'">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                                                <mat-label>ตำเเหน่ง</mat-label>
+                                                <mat-select>
+                                                    <mat-option [value]="1">พนักงาน</mat-option>
+                                                    <mat-option [value]="0">influncer</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                                                <mat-label>เเผนก</mat-label>
+                                                <mat-select>
+                                                    <mat-option [value]="1">บัญชี</mat-option>
+                                                    <mat-option [value]="0">การเงิน</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                            <mat-form-field class="w-full">
+                                                <mat-label>เบอร์โทรศัพท์</mat-label>
+                                                <input matInput [placeholder]="'กรุณาระบุเบอร์โทรศัพท์'">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="flex w-full">
+                                        <div class="flex w-full gt-xs:flex-row ">
+                                            <mat-form-field [ngClass]="formFieldHelpers"
+                                                class="flex-auto gt-xs:pl-3 w-full p-2">
+                                                <mat-label>งานที่ได้รับมอบหมาย</mat-label>
+                                                <input matInput>
+                                                <textarea matInput [rows]="3"></textarea>
+                                                <mat-error>กรุณากรอกข้อมูล</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button class="px-10 rounded-lg ml-3 bg-[#C23339] text-white shadow-md"
+                                        mat-flat-button>
+                                        บันทึก
+                                    </button>
+                                </div>
+                            </div>
+                            </ng-template>
+                    </div>
+                </div>
+                    <div class="flex justify-end">
+                        <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                        </mat-paginator>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

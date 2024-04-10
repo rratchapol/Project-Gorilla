@@ -1,0 +1,66 @@
+<div class="flex flex-col justify-between w-full">
+    <div class="flex flex-col w-full">
+        <mat-toolbar>
+            <span class="ml-1 text-[20px]">ชื่องาน</span>
+        </mat-toolbar>
+    </div>
+        <div class="flex p-4 w-full h-full" >
+            <div class="flex flex-col justify-between w-full">
+                <form class="flex flex-col justify-center w-full  bg-card rounded-2xl shadow">
+                    <div class="bg-card m-4 p-4 rounded-md">
+                        <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th>จัดการ</th>
+                                    <th>ชื่อสินค้า</th>
+                                    <th>จำนวนคน</th>
+                                    <th>รายละเอียดสินค้า</th>
+                                    <th>ธีมงาน</th>
+                                    <th>ส่งดราฟ</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="dataRow?.length != 0">
+                                <tr *ngFor="let item of dataRow; let i = index">
+                                    <td>
+                                        <button mat-icon-button color="primary" (click)="editElement(item)">
+                                            <mat-icon></mat-icon>
+                                        </button>
+                                        <button mat-icon-button color="warn" (click)="deleteElement(item)">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                    </td>
+                                    <!-- <td>{{ pages.begin + (i + 1) }}</td> -->
+                                    <td>{{ item.product }}</td>
+                                    <td>{{ item.tasks }}</td>
+                                    <td>{{ item.member }}</td>
+                                    <td>{{ item.about }}</td>
+                                    <td>{{ item.team }}</td>
+                                    <td>{{ item.draft }}</td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="dataRow?.length == 0">
+                                <tr>
+                                    <td colspan="6" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="flex justify-end">
+                            <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="flex items-center justify-end border-t px-8 py-5 bg-white">
+            <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" mat-button>
+                ยกเลิก
+            </button>
+            <button class="px-10 rounded-lg ml-3 bg-[#C23339] hover:bg-red-700 text-white shadow-md" (click)="save()"
+                mat-flat-button>
+                บันทึก
+            </button>
+        </div>
+    
+</div>

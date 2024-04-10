@@ -1,0 +1,113 @@
+<div class="flex flex-col justify-between w-full">
+    <div class="flex flex-col w-full">
+        <mat-toolbar>
+            <span class="ml-1 text-[20px]">เพิ่มงาน</span>
+        </mat-toolbar>
+    </div>
+    <div class="flex p-4 w-full h-full">
+        <div class="flex flex-col justify-between w-full">
+            <form [formGroup]="Form"
+                class="flex flex-col justify-center w-full mt-2 p-8 pb-4 bg-card rounded-2xl shadow">
+                <!-- แถว 1 -->
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>ชื่องาน</mat-label>
+                        <input matInput [formControlName]="'product'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>ชื่อสินค้า</mat-label>
+                        <input matInput [formControlName]="'phone'" required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>วันที่เริ่มงาน</mat-label>
+                        <input matInput [formControlName]="'datestart'" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>วันที่สิ้นสุดงาน</mat-label>
+                        <input matInput [formControlName]="'dateend'" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="flex gt-xs:flex-row ">
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>พนักงานผู้รับผิดชอบ</mat-label>
+                        <input matInput required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>พนักงานผู้รับผิดชอบ</mat-label>
+                        <input matInput required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>พนักงานผู้รับผิดชอบ</mat-label>
+                        <input matInput required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                    <mat-form-field [ngClass]="formFieldHelpers" class="flex-auto gt-xs:pl-3 w-1/4 p-2">
+                        <mat-label>พนักงานผู้รับผิดชอบ</mat-label>
+                        <input matInput required>
+                        <mat-error>กรุณากรอกข้อมูล</mat-error>
+                    </mat-form-field>
+                </div>
+                <div [formArrayName]="'returns_item'">
+                    <div class="p-fluid p-formgrid grid">
+                        <div class="field col-6 md:col-9">
+                            <label class="font-bold"></label>
+                        </div>
+                        <div class="field col-6 md:col-3">
+                            <button class="px-6 ml-3 bg-[#C23339] hover:bg-red-700 text-white rounded-lg"
+                                mat-flat-button (click)="addApprover()">
+                                เพิ่มข้อมูล
+                            </button>
+                        </div>
+                    </div>
+                    <!-- <div class="p-fluid p-formgrid grid mt-8 "
+                        *ngFor="let approver of returns_item.controls; let i = index" [formGroupName]="i">
+                        <div class="flex gt-xs:flex-row">
+                            <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                    <mat-label>ชื่อจำนวนสินค้า</mat-label>
+                                    <input matInput [placeholder]="'กรอกชื่อจำนวนสินค้า'" formControlName="name">
+                                </mat-form-field>
+                            </div>
+                            <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                    <mat-label>จำนวนคน</mat-label>
+                                    <input matInput [placeholder]="'กรอกจำนวนคน'" formControlName="number">
+                                </mat-form-field>
+                            </div>
+                            <div class="flex-auto gt-xs:pr-3 w-1/4 p-2 mt-1">
+                                <mat-form-field [ngClass]="formFieldHelpers" class="w-full">
+                                    <mat-label>รายละเอียดงาน</mat-label>
+                                    <input matInput [placeholder]="'กรอกรายละเอียดงาน'" formControlName="details">
+                                </mat-form-field>
+                            </div>
+                            <div class="flex items-center">
+                                <button mat-flat-button (click)="removeUserApprove(i)">
+                                    <mat-icon [color]="primary">delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="flex items-center justify-end border-t px-8 py-5 bg-white">
+        <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" mat-button (click)="backTo()">
+            ยกเลิก
+        </button>
+        <button class="px-10 rounded-lg ml-3 bg-[#C23339] text-white shadow-md" mat-flat-button (click)="save()">
+            บันทึก
+        </button>
+    </div>
+</div>

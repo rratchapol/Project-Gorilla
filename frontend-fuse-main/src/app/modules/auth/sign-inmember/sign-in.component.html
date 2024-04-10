@@ -1,0 +1,66 @@
+<div class="flex flex-col flex-auto items-center sm:justify-center min-w-0 md:p-8">
+    <div class="flex md:w-full md:max-w-6xl sm:rounded-2xl sm:shadow overflow-hidden sm:bg-card">
+        <div class="flex w-full sm:w-auto py-8 px-4 sm:p-12 items-center md:p-16">
+            <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0 ">
+                <!-- Logo -->
+                <div class="w-12">
+                    <img src="assets/images/logo/LOGO.png">
+                </div>
+
+                <!-- Title -->
+               
+                <div class="mt-9 text-3xl  tracking-tight leading-tight">เข้าสู่ระบบพนักงาน Gorilla Ideas</div>
+                <!-- Sign in form -->
+                <form
+                    class="mt-8"
+                    [formGroup]="signInForm"
+                    #signInNgForm="ngForm">
+                    <mat-form-field class="w-full">
+                          <mat-label >อีเมล</mat-label>
+                        <input
+                            id="text"
+                            matInput
+                            type="text"
+                            [formControlName]="'text'"
+                            #passwordField
+                            placeholder="@gorillaideas.com">
+                            <mat-error>
+                                กรุณาใส่อีเมล
+                            </mat-error> 
+                        
+                    </mat-form-field>
+                    <!-- <mat-form-field class="w-full">
+                        <mat-label>รหัสผ่าน</mat-label>
+                      <input
+                          id="password"
+                          matInput
+                          type="password"
+                          [formControlName]="'password'"
+                          #passwordField>
+                          <mat-error>
+                              Password is required
+                          </mat-error> 
+                      
+                  </mat-form-field> -->
+                    <button
+                        class="fuse-mat-button-large w-full mt-6 rounded-xl bg-[#C23339]"
+                        mat-flat-button
+                        [disabled]="signInForm.disabled"
+                        (click)="signIn()">
+                        <span *ngIf="!signInForm.disabled" class="text-white text-lg">
+                            เข้าสู่ระบบ
+                        </span>
+                        <mat-progress-spinner
+                            *ngIf="signInForm.disabled"
+                            [diameter]="24"
+                            [mode]="'indeterminate'"></mat-progress-spinner>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="relative hidden md:flex flex-auto items-center justify-center h-full w-full md:w-full  overflow-hidden">
+            <img width="100%" height="100%" class="h-full w-full" src="assets/images/logo/gorilla.png">
+            </div>
+    </div>
+</div>
+

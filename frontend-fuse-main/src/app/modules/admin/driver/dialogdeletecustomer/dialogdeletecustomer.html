@@ -1,0 +1,25 @@
+<div class="h-[200px] flex flex-col justify-between">
+    <div class="flex justify-center">
+        <div class="bg-white  border-red-400 border-2 rounded-full w-15 h-15 flex flex-col justify-center ">
+            <!-- <mat-icon svgIcon="heroicons_outline:trash" class="text-red-400">delete</mat-icon> -->
+            <mat-icon svgIcon="heroicons_outline:trash" class="text-red-400 ml-4 "></mat-icon>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1 class="font-bold text-2xl">ยืนยันการลบ</h1>
+        <p>
+            รายชื่อลูกค้าที่เลือกจะถูกลบออกจากระบบถาวร <br />
+            ไม่สามารถใช้งานผ่านไลน์ และ ASAP Customer ได้อีก
+        </p>
+    </div>
+    <div>
+        <div class="flex flex-auto justify-center ">
+            <button mat-dialog-close class="rounded-md w-full" mat-raised-button>
+                ยกเลิก
+            </button>
+            <button class="rounded-md px-6 ml-3 w-full" mat-flat-button [color]="'primary'">
+                ลบ
+            </button>
+        </div>
+    </div>
+</div>

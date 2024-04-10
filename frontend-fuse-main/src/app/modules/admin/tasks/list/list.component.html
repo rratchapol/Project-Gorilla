@@ -1,0 +1,224 @@
+<div class="flex flex-col w-full">
+    <mat-toolbar>
+        <span class="ml-1 text-[20px]">งานทั้งหมด</span>
+    </mat-toolbar>
+    <div class="flex p-4 w-full">
+        <div class="flex flex-col justify-between w-full">
+            <form class="flex flex-col justify-center w-full  bg-card rounded-2xl shadow">
+                <div class="bg-card m-4 p-4 rounded-md">
+                    <div class="flex mb-3 gap-3 ">
+                        <div class="flex gap-2">
+                            <mat-form-field class="flex-initial w-120">
+                                <mat-icon class="text-gray-400" svgIcon="heroicons_solid:magnifying-glass"></mat-icon>
+                                <input matInput placeholder="ค้นหา">
+                            </mat-form-field>
+                        </div>
+                        <div class="flex justify-end flex-initial gap-3 w-full ">
+                            <button class=" h-12 w-40 text-white rounded-xl shadow-sm bg-[#C23339] hover:bg-red-900"
+                                (click)="gotoAaddriver()">
+                                <div class="flex justify-center">
+                                    <mat-icon class="text-white" svgIcon="heroicons_outline:plus-circle"></mat-icon>
+                                    <p class="mt-1 ml-2">
+                                        เพิ่มงาน
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="w-[100px]">จัดการ</th>
+                                <th>ชื่องาน</th>
+                                <th>ชื่อแบรนด์</th>
+                                <th>วันที่เริ่มงาน</th>
+                                <th>วันที่สิ้นสุดงาน</th>
+                                <th>รายละเอียด</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button mat-icon-button color="warn">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                                <!-- <td>{{ pages.begin + (i + 1) }}</td> -->
+                                <td>ไก่ทอด ซอสเผ็ด</td>
+                                <td>**********</td>
+                                <td>03-03-2024</td>
+                                <td>10-03-2024</td>
+                                <td>
+                                    <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                                        (click)="toggleDetails()">
+                                        <mat-icon class="icon-size-5"
+                                            [svgIcon]="toggle ? 'heroicons_solid:chevron-up' : 'heroicons_solid:chevron-down'"></mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                        
+                        <tbody *ngIf="dataRow?.length == 0">
+                       
+
+                            <tr>
+                                <td colspan="7" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                            </tr>
+                        </tbody>
+    
+                    </table>
+                    <div class="flex w-full mt-4">
+                        <ng-container class="w-full" *ngIf="toggle">
+                            <ng-container class="w-full" *ngTemplateOutlet="rowDetailsTemplate;context: {$implicit: product}"></ng-container>
+                        </ng-container>
+
+                        <ng-template class="w-full" #rowDetailsTemplate let-product>
+                            <div class=" overflow-hidden w-full">
+                                <div class="flex w-full">
+                                    <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                        <mat-form-field class="w-full">
+                                            <mat-label>ชื่องาน</mat-label>
+                                            <input matInput [placeholder]="'กรุณาระบุชื่องาน'">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                                            <mat-label>ชื่อแบรนด์สินค้า</mat-label>
+                                            <input matInput [placeholder]="'กรุณาระบุชื่อแบรนด์สินค้า'">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                        <mat-form-field class="w-full">
+                                            <mat-label>วันที่เริ่มงาน</mat-label>
+                                            <input matInput [placeholder]="'กรุณาระบุวันที่เริ่มงาน'">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                        <mat-form-field class="w-full">
+                                            <mat-label>วันที่สิ้นสุดงาน</mat-label>
+                                            <input matInput [placeholder]="'กรุณาระบุวันที่สิ้นสุดงาน'">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="flex w-full">
+                                    <div class="md:w-full w-1/2 px-3"> <!-- Adjust width classes -->
+                                        <mat-form-field class="w-full">
+                                            <mat-label>วันที่บันทึกงาน</mat-label>
+                                            <input matInput [placeholder]="'กรุณาระบุชื่อเล่น'">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="md:w-full w-1/2 flex items-center mt-5"> <!-- Adjust width classes -->
+                                        <button (click)="onsaveclick()" class="px-10 rounded-lg ml-3 bg-[#333B4A] hover:bg-gray-800 text-white shadow-md"  mat-flat-button>
+                                            Timeline
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-5 w-full">
+                                <mat-accordion class="example-headers-align w-full">
+                                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                                        <mat-expansion-panel-header>
+                                            <button class=" h-12 w-40 text-white rounded-xl shadow-sm bg-[#C23339] hover:bg-red-900"
+                                            >
+                                            <div class="flex justify-center">
+                                                <mat-icon class="text-white" svgIcon="heroicons_outline:plus-circle"></mat-icon>
+                                                <p class="mt-1 ml-2">
+                                                    เพิ่มสินค้า
+                                                </p>
+                                            </div>
+                                        </button>
+                                          </mat-expansion-panel-header>
+                                        <div class="gap-2 flex w-full">
+                                            <mat-form-field class="w-full" >
+                                                <mat-label>ชื่อสินค้า</mat-label>
+                                                <input class="w-1/2" matInput [placeholder]="'กรุณาระบุวันที่เริ่มงาน'">
+                                            </mat-form-field>      
+                                            <mat-form-field class="w-full" >
+                                                <mat-label>จำนวนคน</mat-label>
+                                                <input class="w-1/2" matInput [placeholder]="'กรุณาระบุวันที่เริ่มงาน'">
+                                            </mat-form-field>      
+                                            <mat-form-field class="w-full" >
+                                                <mat-label>รายละเอียดงาน</mat-label>
+                                                <input class="w-1/2" matInput [placeholder]="'กรุณาระบุวันที่เริ่มงาน'">
+                                            </mat-form-field>      
+                                     
+                                      
+                                    </div>
+                                    </mat-expansion-panel>
+                                  
+                                
+                                  
+                
+                                  
+                                  </mat-accordion>
+                                
+                               
+                                <mat-accordion class="example-headers-align">
+                                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                                        
+                                        <mat-expansion-panel-header >
+            
+                                            <button class=" h-12 w-40 text-white rounded-xl shadow-sm bg-[#C23339] hover:bg-red-900"
+                                            >
+                                            <div class="flex justify-center">
+                                                <mat-icon class="text-white" svgIcon="heroicons_outline:plus-circle"></mat-icon>
+                                                <p class="mt-1 ml-2">
+                                                    เพิ่มพนักงาน
+                                                </p>
+                                            </div>
+                                        </button>
+                                            <button (click)="goTo()" class=" h-12 w-40 ml-5 text-white rounded-xl shadow-sm bg-[#484747] hover:bg-[#484747]"
+                                            >
+                                            <div class="flex justify-center">
+                                              
+                                                <p class="mt-1 ">
+                                                    เลือกInfluencer
+                                                </p>
+                                            </div>
+                                        </button>
+                                        
+                                          </mat-expansion-panel-header>
+                                        <div class="gap-2 flex w-full">
+                                            <mat-form-field class="w-full" >
+                                                <mat-label>พนักงานผู้รับผิดชอบ</mat-label>
+                                                <input matInput [placeholder]="'กรุณาระบุวันที่เริ่มงาน'">
+                                            </mat-form-field>      
+                                      <mat-form-field class="w-full">
+                                        <mat-label>พนักงานผู้รับผิดชอบ</mat-label>
+                                        <input matInput type="number" min="1">
+                                      </mat-form-field>
+                                     
+                                      
+                                    </div>
+                                    </mat-expansion-panel>
+                                  
+                                
+                                  
+                
+                                  
+                                  </mat-accordion>
+                                  </div>
+                            </div>
+                        </ng-template>
+                       
+                    </div>
+
+                    <div class="flex justify-end">
+                        <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </form>
+            <div class="flex items-center justify-end border-t px-8 py-5 bg-white">
+                <button class="px-10 rounded-lg ml-3 bg-[#C4C4C4] text-white shadow-md" mat-button>
+                    ยกเลิก
+                </button>
+                <button class="px-10 rounded-lg ml-3 bg-[#C23339] hover:bg-red-700 text-white shadow-md" mat-flat-button>
+                    บันทึก
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
